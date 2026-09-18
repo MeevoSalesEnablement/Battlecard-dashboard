@@ -1,0 +1,2430 @@
+{
+  "aesthetics_pro": {
+    "name": "Aesthetics Pro",
+    "id": null,
+    "win_reason": "Better salon features",
+    "what_they_love": [
+      "HIPAA-compliant EMR system",
+      "Medical aesthetics focus",
+      "Integration with booking systems",
+      "Before/after photo management"
+    ],
+    "what_they_hate": [
+      "Limited full-salon management features",
+      "Expensive for smaller practices ($99-299/month)",
+      "Poor integration outside medical ecosystem",
+      "No POS or advanced inventory management"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "How do you manage full salon operations beyond EMR - scheduling, staff management, inventory?"
+      },
+      {
+        "k": "cost",
+        "t": "What's your total cost when you need to add booking and POS systems separately?"
+      },
+      {
+        "k": "features",
+        "t": "Can you handle multi-location salons or spa add-ons easily?"
+      }
+    ],
+    "voice": null
+  },
+  "aesthetics_record": {
+    "name": "Aesthetics Record",
+    "id": null,
+    "win_reason": "Real salon management",
+    "what_they_love": [
+      "HIPAA-compliant medical EMR",
+      "Aesthetics practice focused",
+      "Client consent forms",
+      "Before/after galleries"
+    ],
+    "what_they_hate": [
+      "Not a full salon management system",
+      "Minimal inventory management",
+      "Limited to aesthetics medical practices",
+      "Poor staff scheduling and POS features"
+    ],
+    "landmines": [
+      {
+        "k": "capability",
+        "t": "Beyond EMR, how do you handle appointment scheduling, payments, and staff management?"
+      },
+      {
+        "k": "scalability",
+        "t": "Can you grow to multi-location practices or add other service lines?"
+      },
+      {
+        "k": "integration",
+        "t": "How does it integrate with professional booking and payment systems?"
+      }
+    ],
+    "voice": null
+  },
+  "aura": {
+    "name": "Aura",
+    "id": null,
+    "win_reason": "Better stability & support",
+    "what_they_love": [
+      "Modern cloud-based platform",
+      "Flexible pricing",
+      "Clean interface",
+      "Mobile app access"
+    ],
+    "what_they_hate": [
+      "Limited feature depth compared to enterprise systems",
+      "Newer player with less market proof",
+      "Smaller ecosystem of integrations",
+      "Limited customer support resources"
+    ],
+    "landmines": [
+      {
+        "k": "experience",
+        "t": "How long has this platform been used in salons like ours?"
+      },
+      {
+        "k": "features",
+        "t": "What advanced features are missing that larger players offer?"
+      },
+      {
+        "k": "stability",
+        "t": "How stable is their platform and what's their uptime guarantee?"
+      }
+    ],
+    "voice": null
+  },
+  "bookedby": {
+    "name": "BookedBy",
+    "id": null,
+    "win_reason": "Broader salon suite",
+    "what_they_love": [
+      "Multi-location support",
+      "Professional booking interface",
+      "Client communication",
+      "Payment processing"
+    ],
+    "what_they_hate": [
+      "Not as comprehensive as full suites",
+      "Limited POS features",
+      "Inventory management is basic",
+      "Staff scheduling could be more robust"
+    ],
+    "landmines": [
+      {
+        "k": "suite",
+        "t": "What happens when you need advanced reporting, inventory, or staff management?"
+      },
+      {
+        "k": "pos",
+        "t": "How do you handle in-salon purchases and retail inventory management?"
+      },
+      {
+        "k": "features",
+        "t": "Does it handle loyalty programs, gift cards, and promotions natively?"
+      }
+    ],
+    "voice": null
+  },
+  "client_trak": {
+    "name": "Client Trak",
+    "id": null,
+    "win_reason": "Modern technology",
+    "what_they_love": [
+      "Established player in salon software",
+      "Good basic salon features",
+      "Client database management",
+      "Appointment scheduling"
+    ],
+    "what_they_hate": [
+      "Outdated user interface",
+      "Limited mobile app experience",
+      "Poor integration capabilities",
+      "Support can be unresponsive"
+    ],
+    "landmines": [
+      {
+        "k": "ux",
+        "t": "Can your staff quickly learn this interface or will training be a nightmare?"
+      },
+      {
+        "k": "mobile",
+        "t": "Do you get modern mobile capabilities or are you tied to a desktop?"
+      },
+      {
+        "k": "integration",
+        "t": "Can you connect it to modern payment systems, accounting software, or marketing tools?"
+      }
+    ],
+    "voice": null
+  },
+  "elite": {
+    "name": "Elite",
+    "id": null,
+    "win_reason": "Better user experience",
+    "what_they_love": [
+      "Comprehensive salon features",
+      "Long-established player",
+      "Multiple deployment options",
+      "Good reporting capabilities"
+    ],
+    "what_they_hate": [
+      "Outdated interface design",
+      "Expensive support fees",
+      "High implementation costs (rated 4/10 on pricing)",
+      "Slow to add modern features"
+    ],
+    "landmines": [
+      {
+        "k": "cost",
+        "t": "What are the total support and maintenance costs per year?"
+      },
+      {
+        "k": "ux",
+        "t": "Will your team be frustrated with an outdated interface every day?"
+      },
+      {
+        "k": "modernization",
+        "t": "How often do they update features and security?"
+      }
+    ],
+    "voice": null
+  },
+  "envision": {
+    "name": "Envision",
+    "id": null,
+    "win_reason": "Transparent pricing",
+    "what_they_love": [
+      "Established salon software provider",
+      "Good customer support",
+      "Comprehensive features",
+      "Multiple pricing tiers"
+    ],
+    "what_they_hate": [
+      "Hidden fees and unexpected charges mentioned",
+      "High pricing for mid-market salons",
+      "Complex pricing model",
+      "Feature bloat for small businesses"
+    ],
+    "landmines": [
+      {
+        "k": "pricing",
+        "t": "What are ALL the fees - setup, per-user, payment processing, integrations?"
+      },
+      {
+        "k": "scalability",
+        "t": "Does pricing scale linearly or do costs jump at certain thresholds?"
+      },
+      {
+        "k": "value",
+        "t": "Are you paying for features you'll never use?"
+      }
+    ],
+    "voice": null
+  },
+  "gloss_genius": {
+    "name": "Gloss Genius",
+    "id": null,
+    "win_reason": "Better value pricing",
+    "what_they_love": [
+      "Modern, intuitive interface",
+      "Strong mobile app",
+      "Good marketing and brand recognition",
+      "Payment processing built-in"
+    ],
+    "what_they_hate": [
+      "High transaction fees (2.6% per swipe + $24-48/month)",
+      "Customer service issues (BBB complaints)",
+      "Limited for multi-location businesses",
+      "Expensive total cost of ownership"
+    ],
+    "landmines": [
+      {
+        "k": "fees",
+        "t": "With 2.6% transaction fees, what's your true monthly cost at $50K revenue?"
+      },
+      {
+        "k": "support",
+        "t": "How will you get support when you have a critical issue?"
+      },
+      {
+        "k": "scale",
+        "t": "Can you manage multiple locations without exponential cost increases?"
+      }
+    ],
+    "voice": null
+  },
+  "guest_vision": {
+    "name": "Guest Vision",
+    "id": null,
+    "win_reason": "Full salon capabilities",
+    "what_they_love": [
+      "Cosmetology school focus",
+      "Client database management",
+      "Appointment scheduling",
+      "Long-established"
+    ],
+    "what_they_hate": [
+      "Limited modern features",
+      "Niche focus limits general salon usability",
+      "Outdated technology",
+      "Poor mobile experience"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Outside of school management, how does this handle full salon operations?"
+      },
+      {
+        "k": "modern",
+        "t": "Are you stuck with outdated technology that's hard to maintain?"
+      },
+      {
+        "k": "mobile",
+        "t": "Can stylists check schedules and client info on mobile devices?"
+      }
+    ],
+    "voice": null
+  },
+  "insight": {
+    "name": "Insight",
+    "id": null,
+    "win_reason": "Better tech stack",
+    "what_they_love": [
+      "Comprehensive salon features",
+      "Established reputation",
+      "Good integration options",
+      "Reliable platform"
+    ],
+    "what_they_hate": [
+      "Potentially outdated interface",
+      "May not be keeping up with modern trends",
+      "Support can be slow",
+      "Limited innovation"
+    ],
+    "landmines": [
+      {
+        "k": "ux",
+        "t": "How modern is the user interface compared to cloud-first competitors?"
+      },
+      {
+        "k": "innovation",
+        "t": "When was the last major feature update or redesign?"
+      },
+      {
+        "k": "mobile",
+        "t": "Is there a modern mobile app or are you dependent on web access?"
+      }
+    ],
+    "voice": null
+  },
+  "massage_book": {
+    "name": "Massage Book",
+    "id": null,
+    "win_reason": "Full salon suite",
+    "what_they_love": [
+      "Specialized for massage/wellness professionals",
+      "Good for solo practitioners",
+      "Simple booking interface",
+      "Affordable entry point"
+    ],
+    "what_they_hate": [
+      "Limited salon-specific features",
+      "No comprehensive POS system",
+      "Not suitable for multi-service salons",
+      "Basic inventory management"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Can this handle hair, nails, aesthetics, and other salon services?"
+      },
+      {
+        "k": "retail",
+        "t": "How do you manage product inventory and retail sales?"
+      },
+      {
+        "k": "scale",
+        "t": "What happens when you grow beyond solo massage practice?"
+      }
+    ],
+    "voice": null
+  },
+  "mikal": {
+    "name": "Mikal",
+    "id": null,
+    "win_reason": "Modern cloud platform",
+    "what_they_love": [
+      "Cincinnati-based with personalized support",
+      "Established salon software company",
+      "Comprehensive features",
+      "BBB accredited business"
+    ],
+    "what_they_hate": [
+      "Limited online presence and information",
+      "Potentially outdated platform",
+      "Slow interface updates",
+      "Difficult to assess modern capabilities"
+    ],
+    "landmines": [
+      {
+        "k": "transparency",
+        "t": "Why is there so little information about this product online?"
+      },
+      {
+        "k": "modernization",
+        "t": "When was the last significant product update?"
+      },
+      {
+        "k": "mobile",
+        "t": "Do they have modern mobile app capabilities?"
+      }
+    ],
+    "voice": null
+  },
+  "milano": {
+    "name": "Milano",
+    "id": null,
+    "win_reason": "Modern architecture",
+    "what_they_love": [
+      "Spa and salon focused",
+      "Client management features",
+      "Established option",
+      "Account management tools"
+    ],
+    "what_they_hate": [
+      "Appears to be legacy software",
+      "Limited modern marketing presence",
+      "Difficult to find current reviews",
+      "Unclear development status"
+    ],
+    "landmines": [
+      {
+        "k": "status",
+        "t": "Is this product still actively developed and supported?"
+      },
+      {
+        "k": "modern",
+        "t": "What modern cloud or mobile capabilities does it have?"
+      },
+      {
+        "k": "community",
+        "t": "Is there an active user community or is this mostly legacy users?"
+      }
+    ],
+    "voice": null
+  },
+  "nextech": {
+    "name": "Nextech",
+    "id": null,
+    "win_reason": "Affordable simplicity",
+    "what_they_love": [
+      "Med spa specific platform",
+      "Comprehensive medical spa features",
+      "Client photo management",
+      "Practice management focus"
+    ],
+    "what_they_hate": [
+      "Enterprise-level pricing (very expensive)",
+      "Complex implementation and learning curve",
+      "Overkill for small salons",
+      "Designed for medical practices, not salons"
+    ],
+    "landmines": [
+      {
+        "k": "cost",
+        "t": "What's the real monthly cost when you factor in implementation and training?"
+      },
+      {
+        "k": "fit",
+        "t": "Are you paying for medical spa features you don't need?"
+      },
+      {
+        "k": "size",
+        "t": "Is this system designed for salon sizes or enterprise only?"
+      }
+    ],
+    "voice": null
+  },
+  "prosolutions": {
+    "name": "ProSolutions",
+    "id": null,
+    "win_reason": "Better features included",
+    "what_they_love": [
+      "Long-established player",
+      "Comprehensive salon features",
+      "Good reporting tools",
+      "Stable platform"
+    ],
+    "what_they_hate": [
+      "Potentially outdated technology",
+      "Pricing criticized for poor ROI",
+      "Limited modern integrations",
+      "Support quality varies"
+    ],
+    "landmines": [
+      {
+        "k": "value",
+        "t": "How does ROI compare when implementing this vs. modern competitors?"
+      },
+      {
+        "k": "integration",
+        "t": "Can you connect to modern payment systems and accounting software?"
+      },
+      {
+        "k": "growth",
+        "t": "How well does it scale as your salon grows?"
+      }
+    ],
+    "voice": null
+  },
+  "rosy_salon_software": {
+    "name": "Rosy Salon Software",
+    "id": null,
+    "win_reason": "Better stability",
+    "what_they_love": [
+      "Modern cloud-based platform",
+      "Mobile app included",
+      "Growing company with innovation",
+      "Good mobile-first design"
+    ],
+    "what_they_hate": [
+      "Performance issues reported",
+      "Slow platform experience during peak times",
+      "Smaller support team",
+      "Less established than legacy competitors"
+    ],
+    "landmines": [
+      {
+        "k": "performance",
+        "t": "How does the system handle your busiest booking periods?"
+      },
+      {
+        "k": "reliability",
+        "t": "What's the uptime guarantee and what happens if it goes down?"
+      },
+      {
+        "k": "support",
+        "t": "Can you get support quickly during critical issues?"
+      }
+    ],
+    "voice": null
+  },
+  "stx": {
+    "name": "STX",
+    "id": null,
+    "win_reason": "Established reliability",
+    "what_they_love": [
+      "Recently rebranded to Inspire by STX",
+      "Modern cloud-based platform",
+      "Comprehensive features",
+      "Strong branding and marketing"
+    ],
+    "what_they_hate": [
+      "Recent rebrand may indicate transition issues",
+      "Potential instability during brand transition",
+      "Limited long-term track record of rebranded platform",
+      "Integration challenges with legacy systems"
+    ],
+    "landmines": [
+      {
+        "k": "transition",
+        "t": "What happens to existing customers during brand transitions?"
+      },
+      {
+        "k": "stability",
+        "t": "Are there any integration or feature issues from the rebrand?"
+      },
+      {
+        "k": "support",
+        "t": "How is support being managed during this organizational change?"
+      }
+    ],
+    "voice": null
+  },
+  "salon_ultimate": {
+    "name": "Salon Ultimate",
+    "id": null,
+    "win_reason": "Modern UX & speed",
+    "what_they_love": [
+      "Comprehensive feature set",
+      "Long-established player",
+      "Multi-location support",
+      "Full salon management"
+    ],
+    "what_they_hate": [
+      "Outdated user interface",
+      "Slow performance issues",
+      "Difficult for staff to learn",
+      "Poor ROI compared to modern alternatives"
+    ],
+    "landmines": [
+      {
+        "k": "usability",
+        "t": "Will your team struggle with an outdated interface daily?"
+      },
+      {
+        "k": "performance",
+        "t": "How fast is it during peak hours - is it responsive enough?"
+      },
+      {
+        "k": "modern",
+        "t": "Is it holding you back with legacy technology?"
+      }
+    ],
+    "voice": null
+  },
+  "shortcuts": {
+    "name": "Shortcuts",
+    "id": null,
+    "win_reason": "Comprehensive management",
+    "what_they_love": [
+      "Established hair salon software",
+      "Good basic features",
+      "Reliable booking system",
+      "Good customer base"
+    ],
+    "what_they_hate": [
+      "Limited modern features",
+      "Outdated interface",
+      "Not keeping pace with innovation",
+      "Limited mobile capabilities"
+    ],
+    "landmines": [
+      {
+        "k": "innovation",
+        "t": "When were the last major features added?"
+      },
+      {
+        "k": "mobile",
+        "t": "Do you get modern mobile app experience or just web?"
+      },
+      {
+        "k": "future",
+        "t": "Is this company investing in future technology?"
+      }
+    ],
+    "voice": null
+  },
+  "squire": {
+    "name": "Squire",
+    "id": null,
+    "win_reason": "Complete salon suite",
+    "what_they_love": [
+      "Mobile-first design",
+      "Barber shop focused",
+      "Growing company with funding",
+      "Good appointment management"
+    ],
+    "what_they_hate": [
+      "Barber-focused, limited for full-service salons",
+      "No comprehensive POS",
+      "Limited multi-service features",
+      "Not suitable for hair salons with other services"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Can this handle hair, nails, aesthetics, and all salon services?"
+      },
+      {
+        "k": "retail",
+        "t": "How do you manage product inventory and retail?"
+      },
+      {
+        "k": "reporting",
+        "t": "Does it provide comprehensive business reporting?"
+      }
+    ],
+    "voice": null
+  },
+  "timely": {
+    "name": "Timely",
+    "id": null,
+    "win_reason": "Comprehensive management",
+    "what_they_love": [
+      "Simple, lightweight platform",
+      "Modern interface",
+      "Easy to use",
+      "Good for basic booking"
+    ],
+    "what_they_hate": [
+      "Limited comprehensive salon management",
+      "Not suitable for complex operations",
+      "Missing advanced features",
+      "No robust POS system"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Can it handle complex scheduling, inventory, and staff management?"
+      },
+      {
+        "k": "growth",
+        "t": "What happens when you outgrow basic booking?"
+      },
+      {
+        "k": "integration",
+        "t": "Does it integrate with accounting, payment, and loyalty platforms?"
+      }
+    ],
+    "voice": null
+  },
+  "mangomint": {
+    "name": "Mangomint",
+    "id": 58126,
+    "win_reason": "Better features",
+    "what_they_love": [
+      "Online booking for clients",
+      "Appointment scheduling",
+      "Client management"
+    ],
+    "what_they_hate": [
+      "Limited reporting capabilities",
+      "Poor API integrations",
+      "Limited customization options"
+    ],
+    "landmines": [
+      {
+        "k": "Reporting",
+        "t": "How detailed are your business reports and analytics?"
+      },
+      {
+        "k": "Integration",
+        "t": "Does Mangomint connect with your accounting software?"
+      },
+      {
+        "k": "Scalability",
+        "t": "How well does Mangomint scale as you add locations?"
+      }
+    ],
+    "voice": null
+  },
+  "super_salon": {
+    "name": "Super Salon",
+    "id": null,
+    "win_reason": "Modern platform",
+    "what_they_love": [
+      "Appointment scheduling",
+      "Basic client management",
+      "Affordable pricing"
+    ],
+    "what_they_hate": [
+      "Outdated interface",
+      "Limited features",
+      "Poor customer support"
+    ],
+    "landmines": [
+      {
+        "k": "Support",
+        "t": "How responsive is Super Salon support?"
+      },
+      {
+        "k": "Features",
+        "t": "Do you need more advanced salon management features?"
+      },
+      {
+        "k": "Growth",
+        "t": "How will Super Salon scale as your business grows?"
+      }
+    ],
+    "voice": null
+  },
+  "acuity": {
+    "name": "Acuity Scheduling",
+    "id": null,
+    "win_reason": "More affordable, complete salon suite",
+    "what_they_love": [
+      "Cloud-based booking available",
+      "Payment processing included",
+      "Email/SMS notifications",
+      "Basic form customization"
+    ],
+    "what_they_hate": [
+      "No comprehensive appointment management beyond basic booking",
+      "Limited client history and preferences tracking",
+      "No built-in POS or retail inventory management",
+      "Missing staff performance and commission tracking"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "How do you manage inventory and retail sales beyond scheduling?"
+      },
+      {
+        "k": "features",
+        "t": "What advanced salon features like commission tracking do you need?"
+      },
+      {
+        "k": "integration",
+        "t": "Can it connect to your accounting and payroll systems?"
+      }
+    ],
+    "voice": null
+  },
+  "book4time": {
+    "name": "Book4Time",
+    "id": null,
+    "win_reason": "Better integrated management",
+    "what_they_love": [
+      "Scheduling and booking",
+      "Multi-location support",
+      "Client reminders",
+      "Basic reporting"
+    ],
+    "what_they_hate": [
+      "Limited modern interface",
+      "Poor mobile experience",
+      "Minimal POS capabilities",
+      "Customer support gaps"
+    ],
+    "landmines": [
+      {
+        "k": "ux",
+        "t": "How will your team react to a dated interface?"
+      },
+      {
+        "k": "mobile",
+        "t": "Can staff check schedules on mobile easily?"
+      },
+      {
+        "k": "features",
+        "t": "What key salon features are missing for your operation?"
+      }
+    ],
+    "voice": null
+  },
+  "booker": {
+    "name": "Booker",
+    "id": null,
+    "win_reason": "Better value for full salons",
+    "what_they_love": [
+      "Salon and spa industry focus with relevant features",
+      "Comprehensive staff scheduling and management tools",
+      "Integrated payment processing and tip management",
+      "Mobile app for appointment reminders and staff scheduling"
+    ],
+    "what_they_hate": [
+      "Complicated pricing structure with per-location fees",
+      "Expensive implementation and onboarding process",
+      "Requires significant staff training time",
+      "Limited customization for unique salon workflows"
+    ],
+    "landmines": [
+      {
+        "k": "cost",
+        "t": "What's the true cost including implementation and training?"
+      },
+      {
+        "k": "adoption",
+        "t": "How much staff training time is needed?"
+      },
+      {
+        "k": "trial",
+        "t": "Can you test it properly before committing?"
+      }
+    ],
+    "voice": null
+  },
+  "bookly": {
+    "name": "Bookly",
+    "id": null,
+    "win_reason": "Better salon-specific features",
+    "what_they_love": [
+      "WordPress-based, affordable",
+      "Good for small salons",
+      "Easy setup",
+      "Basic booking functionality"
+    ],
+    "what_they_hate": [
+      "Requires technical WordPress knowledge",
+      "Limited reporting and analytics",
+      "Weak mobile experience",
+      "No native inventory management"
+    ],
+    "landmines": [
+      {
+        "k": "tech",
+        "t": "Do you have WordPress expertise to maintain this?"
+      },
+      {
+        "k": "features",
+        "t": "What critical salon features are missing?"
+      },
+      {
+        "k": "scale",
+        "t": "How will this work as you add more locations?"
+      }
+    ],
+    "voice": null
+  },
+  "booksy": {
+    "name": "Booksy",
+    "id": null,
+    "win_reason": "Better client experience",
+    "what_they_love": [
+      "Strong online booking platform",
+      "Mobile-first design",
+      "Good marketing features",
+      "Therapist/stylist profiles"
+    ],
+    "what_they_hate": [
+      "Limited backend management features",
+      "Not a full salon management system",
+      "High transaction fees",
+      "Expensive add-on features"
+    ],
+    "landmines": [
+      {
+        "k": "fees",
+        "t": "What are all the transaction and add-on fees?"
+      },
+      {
+        "k": "backend",
+        "t": "Can you manage staff, payroll, and inventory?"
+      },
+      {
+        "k": "integration",
+        "t": "Does it connect to your POS and accounting?"
+      }
+    ],
+    "voice": null
+  },
+  "boulevard": {
+    "name": "Boulevard",
+    "id": null,
+    "win_reason": "More features included",
+    "what_they_love": [
+      "Beautiful modern interface",
+      "Complete salon software suite",
+      "Strong client-facing tools",
+      "Good mobile app"
+    ],
+    "what_they_hate": [
+      "Premium pricing tier",
+      "May have implementation complexity",
+      "Fewer customization options vs. enterprise",
+      "Limited API access for integrations"
+    ],
+    "landmines": [
+      {
+        "k": "cost",
+        "t": "What's the total cost for your salon size?"
+      },
+      {
+        "k": "customization",
+        "t": "Can you customize workflows specific to your salon?"
+      },
+      {
+        "k": "integration",
+        "t": "What integrations are available beyond standard features?"
+      }
+    ],
+    "voice": null
+  },
+  "calendly": {
+    "name": "Calendly",
+    "id": null,
+    "win_reason": "Complete salon management",
+    "what_they_love": [
+      "Simple, intuitive scheduling",
+      "Easy to use for clients",
+      "Great integrations",
+      "Mobile friendly"
+    ],
+    "what_they_hate": [
+      "Not designed for salon businesses",
+      "Limited client management features",
+      "No POS or inventory management",
+      "Not suitable for multi-service salons"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Is Calendly really built for salon operations?"
+      },
+      {
+        "k": "features",
+        "t": "How do you manage staff, inventory, and payments?"
+      },
+      {
+        "k": "salons",
+        "t": "Can it handle multiple services and stylists?"
+      }
+    ],
+    "voice": null
+  },
+  "clinicsense": {
+    "name": "ClinicSense",
+    "id": null,
+    "win_reason": "Better for salons",
+    "what_they_love": [
+      "Practice management focus",
+      "EMR capabilities",
+      "Appointment scheduling",
+      "Patient portal"
+    ],
+    "what_they_hate": [
+      "Designed for clinics, not salons",
+      "Overly complex for salon use",
+      "Medical-focused features you don't need",
+      "Poor salon-specific reporting"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Is clinic management software right for your salon?"
+      },
+      {
+        "k": "cost",
+        "t": "Are you paying for medical features you don't use?"
+      },
+      {
+        "k": "support",
+        "t": "Will support understand salon operations?"
+      }
+    ],
+    "voice": null
+  },
+  "clover": {
+    "name": "Clover",
+    "id": null,
+    "win_reason": "Better salon-specific features",
+    "what_they_love": [
+      "POS system with payments",
+      "Multi-location support",
+      "Inventory management",
+      "Good hardware ecosystem"
+    ],
+    "what_they_hate": [
+      "Limited appointment scheduling",
+      "Not optimized for service-based salons",
+      "Better for retail than services",
+      "Limited styling/booking features"
+    ],
+    "landmines": [
+      {
+        "k": "booking",
+        "t": "How robust is the appointment scheduling?"
+      },
+      {
+        "k": "staff",
+        "t": "Can you manage staff scheduling and commission?"
+      },
+      {
+        "k": "services",
+        "t": "Is it designed for service-based businesses?"
+      }
+    ],
+    "voice": null
+  },
+  "combo": {
+    "name": "Combo",
+    "id": null,
+    "win_reason": "Better business management",
+    "what_they_love": [
+      "All-in-one platform",
+      "Scheduling and POS",
+      "Staff management",
+      "Affordable pricing"
+    ],
+    "what_they_hate": [
+      "Limited market presence",
+      "Fewer integrations available",
+      "Support quality concerns",
+      "Less established than competitors"
+    ],
+    "landmines": [
+      {
+        "k": "stability",
+        "t": "Is this company stable and will they continue innovating?"
+      },
+      {
+        "k": "integrations",
+        "t": "What third-party tools can it connect to?"
+      },
+      {
+        "k": "support",
+        "t": "What's the support quality like?"
+      }
+    ],
+    "voice": null
+  },
+  "daysmart": {
+    "name": "DaySmart",
+    "id": null,
+    "win_reason": "More complete salon suite",
+    "what_they_love": [
+      "Industry-leading appointment scheduling engine",
+      "Integrated payment processing with competitive rates",
+      "Staff scheduling and commission management",
+      "Multi-product suite (Appointy, Simplybook, etc.)"
+    ],
+    "what_they_hate": [
+      "Complex product ecosystem requires learning multiple systems",
+      "Per-location pricing increases costs significantly",
+      "Implementation can take 6-12 weeks",
+      "Support often routes to offshore teams"
+    ],
+    "landmines": [
+      {
+        "k": "implementation",
+        "t": "How long and costly is implementation?"
+      },
+      {
+        "k": "support",
+        "t": "Do they support your specific needs after implementation?"
+      },
+      {
+        "k": "cost",
+        "t": "What's the true total cost of ownership?"
+      }
+    ],
+    "voice": null
+  },
+  "dermengine": {
+    "name": "DermEngine",
+    "id": null,
+    "win_reason": "Better salon management",
+    "what_they_love": [
+      "Dermatology-focused",
+      "Advanced medical features",
+      "Good documentation",
+      "Telehealth capabilities"
+    ],
+    "what_they_hate": [
+      "Overkill for salons",
+      "Medical-specific, not salon-optimized",
+      "Expensive for non-medical salons",
+      "Steep learning curve"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Is dermatology software right for your salon?"
+      },
+      {
+        "k": "cost",
+        "t": "Are you paying for specialized medical features?"
+      },
+      {
+        "k": "complexity",
+        "t": "Will your team struggle with complex medical workflows?"
+      }
+    ],
+    "voice": null
+  },
+  "elation_health": {
+    "name": "Elation Health",
+    "id": null,
+    "win_reason": "Better for salons",
+    "what_they_love": [
+      "Cloud-based EHR",
+      "Strong security and HIPAA compliance",
+      "Good documentation tools",
+      "Integration with health systems"
+    ],
+    "what_they_hate": [
+      "Built for medical practices, not salons",
+      "Too complex for salon operations",
+      "Medical-specific workflows",
+      "Expensive for salon use"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Why would a salon choose medical EHR software?"
+      },
+      {
+        "k": "cost",
+        "t": "What's the cost for non-medical salon operations?"
+      },
+      {
+        "k": "support",
+        "t": "Will they support salon-specific needs?"
+      }
+    ],
+    "voice": null
+  },
+  "fresha": {
+    "name": "Fresha",
+    "id": null,
+    "win_reason": "Better business features",
+    "what_they_love": [
+      "Modern, beautiful user interface with smooth performance",
+      "Strong online booking with 24/7 client access",
+      "Integrated payments and automated invoicing",
+      "Mobile app for both clients and staff"
+    ],
+    "what_they_hate": [
+      "Limited to single location or expensive per-location pricing",
+      "No native retail/inventory management",
+      "Smaller company means less 24/7 support options",
+      "Limited integrations with accounting systems"
+    ],
+    "landmines": [
+      {
+        "k": "scale",
+        "t": "Does it handle multi-location operations well?"
+      },
+      {
+        "k": "features",
+        "t": "What advanced salon features might be missing?"
+      },
+      {
+        "k": "stability",
+        "t": "Is the platform stable for critical operations?"
+      }
+    ],
+    "voice": null
+  },
+  "genbook": {
+    "name": "Genbook",
+    "id": null,
+    "win_reason": "Better salon experience",
+    "what_they_love": [
+      "Online booking platform",
+      "Good for service professionals",
+      "CRM features included",
+      "Mobile app available"
+    ],
+    "what_they_hate": [
+      "Limited full-salon management",
+      "No comprehensive POS",
+      "Basic inventory features",
+      "Less feature-rich than full platforms"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Can it handle complete salon operations beyond booking?"
+      },
+      {
+        "k": "pos",
+        "t": "How robust is the point of sale system?"
+      },
+      {
+        "k": "inventory",
+        "t": "Can you manage product inventory and retail?"
+      }
+    ],
+    "voice": null
+  },
+  "growthzilla": {
+    "name": "Growthzilla",
+    "id": null,
+    "win_reason": "Better business analytics",
+    "what_they_love": [
+      "Marketing and growth focus",
+      "Analytics and reporting",
+      "Client engagement tools",
+      "Affordable pricing"
+    ],
+    "what_they_hate": [
+      "Not a complete salon software",
+      "Missing core booking functionality",
+      "Requires integration with other systems",
+      "Limited appointment management"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Is this a marketing add-on or a core salon system?"
+      },
+      {
+        "k": "integration",
+        "t": "What systems do you need to integrate with?"
+      },
+      {
+        "k": "features",
+        "t": "Does it have appointment scheduling built-in?"
+      }
+    ],
+    "voice": null
+  },
+  "hairmax": {
+    "name": "HairMax",
+    "id": null,
+    "win_reason": "Better salon management",
+    "what_they_love": [
+      "Hair salon focused",
+      "Appointment scheduling",
+      "Client management",
+      "Basic POS"
+    ],
+    "what_they_hate": [
+      "Limited market information available",
+      "Possibly outdated platform",
+      "Limited integrations",
+      "Small support team"
+    ],
+    "landmines": [
+      {
+        "k": "current",
+        "t": "Is this platform still actively developed?"
+      },
+      {
+        "k": "features",
+        "t": "Does it have all features your salon needs?"
+      },
+      {
+        "k": "support",
+        "t": "What level of support can you expect?"
+      }
+    ],
+    "voice": null
+  },
+  "healthie": {
+    "name": "Healthie",
+    "id": null,
+    "win_reason": "Better for salons",
+    "what_they_love": [
+      "Wellness and health practitioner focus",
+      "Patient management",
+      "Telehealth capabilities",
+      "HIPAA compliant"
+    ],
+    "what_they_hate": [
+      "Medical/health focused, not salon-optimized",
+      "Limited salon-specific features",
+      "Doesn't include comprehensive POS",
+      "May lack beauty-specific workflows"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Is health practitioner software right for beauty salons?"
+      },
+      {
+        "k": "features",
+        "t": "Does it have styling, booking, and retail features?"
+      },
+      {
+        "k": "cost",
+        "t": "What's the pricing for salon-specific needs?"
+      }
+    ],
+    "voice": null
+  },
+  "janeapp": {
+    "name": "JaneApp",
+    "id": null,
+    "win_reason": "Better salon management",
+    "what_they_love": [
+      "Canadian-based with strong support",
+      "Health and wellness practitioner focus",
+      "Good integrations",
+      "HIPAA compliant"
+    ],
+    "what_they_hate": [
+      "Not designed for beauty salons",
+      "Medical/wellness focus, not styling",
+      "Limited salon-specific features",
+      "May have pricing for broader use"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Is wellness app software right for a beauty salon?"
+      },
+      {
+        "k": "features",
+        "t": "What styling and salon features are missing?"
+      },
+      {
+        "k": "focus",
+        "t": "Will they prioritize salon needs vs. health focus?"
+      }
+    ],
+    "voice": null
+  },
+  "korvue": {
+    "name": "KORVUE",
+    "id": null,
+    "win_reason": "Better salon integration",
+    "what_they_love": [
+      "Multi-location support",
+      "Salon management platform",
+      "Client management features",
+      "Reporting capabilities"
+    ],
+    "what_they_hate": [
+      "Limited online presence",
+      "Possibly legacy technology",
+      "Limited modern integrations",
+      "Small user base"
+    ],
+    "landmines": [
+      {
+        "k": "modern",
+        "t": "Is this built on modern technology?"
+      },
+      {
+        "k": "features",
+        "t": "What key features does it include?"
+      },
+      {
+        "k": "community",
+        "t": "Is there an active user community for support?"
+      }
+    ],
+    "voice": null
+  },
+  "leprechaun": {
+    "name": "Leprechaun",
+    "id": null,
+    "win_reason": "Better full-service management",
+    "what_they_love": [
+      "Salon-specific platform",
+      "Appointment scheduling",
+      "POS capabilities",
+      "Client management"
+    ],
+    "what_they_hate": [
+      "Limited market presence",
+      "Possibly smaller company",
+      "Limited innovation visibility",
+      "Support quality questions"
+    ],
+    "landmines": [
+      {
+        "k": "stability",
+        "t": "Is this company stable long-term?"
+      },
+      {
+        "k": "features",
+        "t": "Does it meet all your operational needs?"
+      },
+      {
+        "k": "support",
+        "t": "Can you count on responsive support?"
+      }
+    ],
+    "voice": null
+  },
+  "manage_my_spa": {
+    "name": "Manage My Spa",
+    "id": null,
+    "win_reason": "Better overall management",
+    "what_they_love": [
+      "Spa-focused platform",
+      "Appointment scheduling",
+      "Therapist management",
+      "Basic POS"
+    ],
+    "what_they_hate": [
+      "Limited to spa vertical",
+      "Older platform with dated UI",
+      "Limited modern integrations",
+      "Smaller support team"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Does it only work for spas or handle hair/nails?"
+      },
+      {
+        "k": "modern",
+        "t": "Is the interface up-to-date with current standards?"
+      },
+      {
+        "k": "growth",
+        "t": "Can it scale if your business grows?"
+      }
+    ],
+    "voice": null
+  },
+  "meevo_2": {
+    "name": "Meevo 2",
+    "id": null,
+    "win_reason": "Best in class",
+    "what_they_love": [
+      "Most comprehensive salon software",
+      "Exceptional customer support",
+      "Beautiful modern interface",
+      "Deep integrations and ecosystem"
+    ],
+    "what_they_hate": [
+      "Nothing - this is Meevo!",
+      "Already using the best",
+      "Higher pricing reflects superior value",
+      "Team fully trained and productive"
+    ],
+    "landmines": [
+      {
+        "k": "already",
+        "t": "Wait, you're already using Meevo 2?"
+      },
+      {
+        "k": "migration",
+        "t": "Why would you consider switching from the market leader?"
+      },
+      {
+        "k": "satisfaction",
+        "t": "Is there something specific Meevo could improve?"
+      }
+    ],
+    "voice": null
+  },
+  "milano_cloud": {
+    "name": "Milano Cloud",
+    "id": null,
+    "win_reason": "Better modern features",
+    "what_they_love": [
+      "Cloud-based salon software",
+      "Appointment scheduling",
+      "Client management",
+      "Multi-location support"
+    ],
+    "what_they_hate": [
+      "May be older version of Milano",
+      "Limited modern feature updates",
+      "Unclear development status",
+      "Limited market visibility"
+    ],
+    "landmines": [
+      {
+        "k": "status",
+        "t": "Is this the current version or legacy?"
+      },
+      {
+        "k": "features",
+        "t": "What features has it gained recently?"
+      },
+      {
+        "k": "roadmap",
+        "t": "What's on the product roadmap?"
+      }
+    ],
+    "voice": null
+  },
+  "millennium": {
+    "name": "Millennium",
+    "id": null,
+    "win_reason": "Better complete solution",
+    "what_they_love": [
+      "Established salon software",
+      "Comprehensive features",
+      "Multi-location support",
+      "Long customer base"
+    ],
+    "what_they_hate": [
+      "Possibly outdated technology",
+      "Support quality questions",
+      "Pricing may seem high",
+      "Interface not as modern as new entrants"
+    ],
+    "landmines": [
+      {
+        "k": "modern",
+        "t": "How modern is the underlying technology?"
+      },
+      {
+        "k": "ux",
+        "t": "Will your team prefer newer interfaces?"
+      },
+      {
+        "k": "cost",
+        "t": "Is the pricing competitive for value delivered?"
+      }
+    ],
+    "voice": null
+  },
+  "mindbody": {
+    "name": "Mindbody",
+    "id": null,
+    "win_reason": "Better for full salons",
+    "what_they_love": [
+      "Extensive feature set for studios, salons, and spas",
+      "Strong online booking with branded client portal",
+      "Retail management built-in for product sales",
+      "Integration with major payment processors"
+    ],
+    "what_they_hate": [
+      "Expensive for salons under 10 employees ($200-400/month)",
+      "Implementation and training can be overwhelming",
+      "Interface feels outdated despite feature breadth",
+      "Support quality varies significantly by region"
+    ],
+    "landmines": [
+      {
+        "k": "cost",
+        "t": "Is Mindbody pricing justified for your salon?"
+      },
+      {
+        "k": "implementation",
+        "t": "How long does implementation take?"
+      },
+      {
+        "k": "fit",
+        "t": "Are you paying for wellness features you don't need?"
+      }
+    ],
+    "voice": null
+  },
+  "myTime": {
+    "name": "MyTime",
+    "id": null,
+    "win_reason": "Better business management",
+    "what_they_love": [
+      "Online booking platform",
+      "Good for local search visibility",
+      "CRM features included",
+      "Affordable pricing"
+    ],
+    "what_they_hate": [
+      "Limited full salon management",
+      "No comprehensive POS",
+      "Basic inventory management",
+      "Not as feature-rich as dedicated salon software"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Is this primarily a booking platform vs. full management?"
+      },
+      {
+        "k": "features",
+        "t": "What happens when you need advanced features?"
+      },
+      {
+        "k": "pos",
+        "t": "How do you handle payments and inventory?"
+      }
+    ],
+    "voice": null
+  },
+  "no_software": {
+    "name": "No Software",
+    "id": null,
+    "win_reason": "Best salon management",
+    "what_they_love": [
+      "Cloud-based appointment book",
+      "Easy client management",
+      "Simple to use",
+      "Affordable"
+    ],
+    "what_they_hate": [
+      "Very basic features",
+      "Missing POS and inventory",
+      "No staff management",
+      "Limited for growing salons"
+    ],
+    "landmines": [
+      {
+        "k": "growth",
+        "t": "What happens when you outgrow basic booking?"
+      },
+      {
+        "k": "features",
+        "t": "What critical salon features are you missing?"
+      },
+      {
+        "k": "scale",
+        "t": "Can it handle multiple locations?"
+      }
+    ],
+    "voice": null
+  },
+  "octopi": {
+    "name": "Octopi",
+    "id": null,
+    "win_reason": "Better salon features",
+    "what_they_love": [
+      "Salon appointment software",
+      "Client management",
+      "Basic scheduling",
+      "Simple interface"
+    ],
+    "what_they_hate": [
+      "Limited modern features",
+      "No comprehensive POS",
+      "Weak inventory management",
+      "Small company with limited support"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Does it go beyond basic booking?"
+      },
+      {
+        "k": "features",
+        "t": "What advanced features are you missing?"
+      },
+      {
+        "k": "growth",
+        "t": "How will this scale as your salon grows?"
+      }
+    ],
+    "voice": null
+  },
+  "pabau": {
+    "name": "Pabau",
+    "id": null,
+    "win_reason": "Better full management",
+    "what_they_love": [
+      "Focused on beauty professionals",
+      "Mobile app for appointments",
+      "Client profiles",
+      "Marketing features included"
+    ],
+    "what_they_hate": [
+      "May have setup complexity",
+      "Limited integrations",
+      "Smaller user base",
+      "Support quality variable"
+    ],
+    "landmines": [
+      {
+        "k": "features",
+        "t": "Does it include all POS and inventory features?"
+      },
+      {
+        "k": "scale",
+        "t": "How well does it handle multi-location?"
+      },
+      {
+        "k": "integration",
+        "t": "What systems can it connect to?"
+      }
+    ],
+    "voice": null
+  },
+  "paperback": {
+    "name": "Paperback",
+    "id": null,
+    "win_reason": "Better salon management",
+    "what_they_love": [
+      "Salon-specific platform",
+      "Appointment scheduling",
+      "Client management",
+      "Simple to use"
+    ],
+    "what_they_hate": [
+      "Very limited information available",
+      "Possibly very small platform",
+      "Limited feature set",
+      "Difficult to assess capabilities"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Is this actually designed for your salon?"
+      },
+      {
+        "k": "features",
+        "t": "What functionality does it actually provide?"
+      },
+      {
+        "k": "stability",
+        "t": "Is the company stable and growing?"
+      }
+    ],
+    "voice": null
+  },
+  "paperless_billing": {
+    "name": "Paperless Billing",
+    "id": null,
+    "win_reason": "Better complete solution",
+    "what_they_love": [
+      "Digital billing platform",
+      "Client invoice management",
+      "Paperless records",
+      "Simple invoicing"
+    ],
+    "what_they_hate": [
+      "Not a full salon management system",
+      "Only handles billing, not booking",
+      "Missing inventory and POS",
+      "Requires separate salon software"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Is this an add-on or a complete system?"
+      },
+      {
+        "k": "integration",
+        "t": "How does it integrate with salon management software?"
+      },
+      {
+        "k": "cost",
+        "t": "What's the total cost with your main salon system?"
+      }
+    ],
+    "voice": null
+  },
+  "patientnow": {
+    "name": "PatientNow",
+    "id": null,
+    "win_reason": "Better for salons",
+    "what_they_love": [
+      "Medical practice management",
+      "Patient engagement",
+      "Appointment scheduling",
+      "Medical records management"
+    ],
+    "what_they_hate": [
+      "Designed for medical practices, not salons",
+      "Medical workflows not suitable for salons",
+      "Missing salon-specific features",
+      "Overly complex for salon use"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Why would a salon choose medical practice software?"
+      },
+      {
+        "k": "features",
+        "t": "What salon-specific features are missing?"
+      },
+      {
+        "k": "support",
+        "t": "Will they support salon operations?"
+      }
+    ],
+    "voice": null
+  },
+  "phorest": {
+    "name": "Phorest",
+    "id": null,
+    "win_reason": "Better value and features",
+    "what_they_love": [
+      "European-developed with strong reliability track record",
+      "Modern interface with mobile-first client app",
+      "Integrated appointment scheduling and POS",
+      "Strong API and integration capabilities"
+    ],
+    "what_they_hate": [
+      "Support operates on UK/European time zones",
+      "Pricing may be higher due to international operations",
+      "Limited local references in US market",
+      "Documentation primarily tailored to UK market"
+    ],
+    "landmines": [
+      {
+        "k": "support",
+        "t": "How responsive is support for US-based salons?"
+      },
+      {
+        "k": "features",
+        "t": "Are features optimized for US salon operations?"
+      },
+      {
+        "k": "compliance",
+        "t": "Does it meet US compliance requirements?"
+      }
+    ],
+    "voice": null
+  },
+  "prosalon": {
+    "name": "ProSalon",
+    "id": null,
+    "win_reason": "Better integrated management",
+    "what_they_love": [
+      "Salon management focused",
+      "Appointment scheduling",
+      "Staff management",
+      "Reporting features"
+    ],
+    "what_they_hate": [
+      "Limited market presence",
+      "Older platform technology",
+      "Limited modern integrations",
+      "Small support team"
+    ],
+    "landmines": [
+      {
+        "k": "modern",
+        "t": "Is this built on modern technology?"
+      },
+      {
+        "k": "features",
+        "t": "What key features does it have?"
+      },
+      {
+        "k": "support",
+        "t": "Can you rely on responsive support?"
+      }
+    ],
+    "voice": null
+  },
+  "salon_iris": {
+    "name": "Salon Iris",
+    "id": null,
+    "win_reason": "Better salon management",
+    "what_they_love": [
+      "Salon-specific features",
+      "Appointment scheduling",
+      "Client management",
+      "Basic POS"
+    ],
+    "what_they_hate": [
+      "Limited market information",
+      "Possibly very small platform",
+      "Limited integrations",
+      "Difficult to assess current status"
+    ],
+    "landmines": [
+      {
+        "k": "stability",
+        "t": "Is this company stable and growing?"
+      },
+      {
+        "k": "features",
+        "t": "What features does it provide?"
+      },
+      {
+        "k": "support",
+        "t": "What kind of support can you expect?"
+      }
+    ],
+    "voice": null
+  },
+  "salonbiz": {
+    "name": "SalonBiz",
+    "id": null,
+    "win_reason": "Better features and support",
+    "what_they_love": [
+      "Cloud-based salon software",
+      "Comprehensive features",
+      "Multi-location support",
+      "Appointment scheduling"
+    ],
+    "what_they_hate": [
+      "Limited online information",
+      "Possibly older platform",
+      "Limited modern integrations",
+      "Smaller support operation"
+    ],
+    "landmines": [
+      {
+        "k": "current",
+        "t": "Is this platform still actively developed?"
+      },
+      {
+        "k": "features",
+        "t": "What features have been added recently?"
+      },
+      {
+        "k": "support",
+        "t": "How responsive is the support team?"
+      }
+    ],
+    "voice": null
+  },
+  "salonclouds": {
+    "name": "SalonClouds",
+    "id": null,
+    "win_reason": "Better complete solution",
+    "what_they_love": [
+      "Cloud-based platform",
+      "Salon-specific features",
+      "Client management",
+      "Multi-location support"
+    ],
+    "what_they_hate": [
+      "Limited market presence",
+      "Fewer integrations available",
+      "Smaller company",
+      "Limited support resources"
+    ],
+    "landmines": [
+      {
+        "k": "features",
+        "t": "Does it include all features you need?"
+      },
+      {
+        "k": "integration",
+        "t": "What can it connect to?"
+      },
+      {
+        "k": "support",
+        "t": "Can you rely on responsive support?"
+      }
+    ],
+    "voice": null
+  },
+  "salonware": {
+    "name": "Salonware",
+    "id": null,
+    "win_reason": "Better salon management",
+    "what_they_love": [
+      "Salon-specific software",
+      "Appointment scheduling",
+      "Client management",
+      "POS capabilities"
+    ],
+    "what_they_hate": [
+      "Limited market visibility",
+      "Possibly legacy technology",
+      "Limited modern integrations",
+      "Small support team"
+    ],
+    "landmines": [
+      {
+        "k": "modern",
+        "t": "Is this built on modern technology?"
+      },
+      {
+        "k": "features",
+        "t": "What key features does it offer?"
+      },
+      {
+        "k": "growth",
+        "t": "Can it scale with your business?"
+      }
+    ],
+    "voice": null
+  },
+  "schedulicity": {
+    "name": "Schedulicity",
+    "id": null,
+    "win_reason": "Better full management",
+    "what_they_love": [
+      "Online booking platform",
+      "Good for service businesses",
+      "CRM features included",
+      "Affordable pricing"
+    ],
+    "what_they_hate": [
+      "Limited full salon management",
+      "No comprehensive POS",
+      "Basic inventory management",
+      "Not as feature-rich as dedicated platforms"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Does it go beyond booking to full management?"
+      },
+      {
+        "k": "features",
+        "t": "What advanced features are missing?"
+      },
+      {
+        "k": "scale",
+        "t": "How well does it handle growth?"
+      }
+    ],
+    "voice": null
+  },
+  "setmore": {
+    "name": "Setmore",
+    "id": null,
+    "win_reason": "Better complete solution",
+    "what_they_love": [
+      "Free appointment scheduling",
+      "Easy to use for clients",
+      "Good integrations",
+      "No-frills approach"
+    ],
+    "what_they_hate": [
+      "Very basic features",
+      "No POS or inventory",
+      "Limited for growing salons",
+      "Minimal staff management"
+    ],
+    "landmines": [
+      {
+        "k": "cost",
+        "t": "What are the hidden costs beyond the free plan?"
+      },
+      {
+        "k": "features",
+        "t": "What happens when you need advanced features?"
+      },
+      {
+        "k": "scale",
+        "t": "How do you manage multi-location?"
+      }
+    ],
+    "voice": null
+  },
+  "shedul": {
+    "name": "Shedul",
+    "id": null,
+    "win_reason": "Better salon features",
+    "what_they_love": [
+      "Cloud-based booking platform",
+      "Mobile app for clients",
+      "Simple interface",
+      "Affordable"
+    ],
+    "what_they_hate": [
+      "Limited full salon management",
+      "No comprehensive POS",
+      "Basic inventory features",
+      "Not as feature-rich as full platforms"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Is this primarily a booking tool?"
+      },
+      {
+        "k": "features",
+        "t": "What salon features are you missing?"
+      },
+      {
+        "k": "integration",
+        "t": "Can it integrate with your other business systems?"
+      }
+    ],
+    "voice": null
+  },
+  "simplybook": {
+    "name": "Simplybook.me",
+    "id": null,
+    "win_reason": "Better for full salons",
+    "what_they_love": [
+      "Online booking platform",
+      "Good for service professionals",
+      "Multiple customization options",
+      "Affordable entry"
+    ],
+    "what_they_hate": [
+      "Limited full salon management",
+      "No comprehensive POS",
+      "Basic staff management",
+      "Not suitable for complex operations"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Can it handle full salon operations?"
+      },
+      {
+        "k": "features",
+        "t": "What important features are missing?"
+      },
+      {
+        "k": "scale",
+        "t": "How well does it scale?"
+      }
+    ],
+    "voice": null
+  },
+  "spabooked": {
+    "name": "SpaBooker",
+    "id": null,
+    "win_reason": "Better spa management",
+    "what_they_love": [
+      "Spa-focused platform",
+      "Appointment scheduling",
+      "Therapist management",
+      "Basic POS"
+    ],
+    "what_they_hate": [
+      "Limited to spa vertical",
+      "Possibly older technology",
+      "Limited modern integrations",
+      "Small support team"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Does it work for hair, nails, or just spa?"
+      },
+      {
+        "k": "modern",
+        "t": "Is the interface up-to-date?"
+      },
+      {
+        "k": "growth",
+        "t": "Can you grow beyond single spa location?"
+      }
+    ],
+    "voice": null
+  },
+  "spasoft": {
+    "name": "SpaSoft",
+    "id": null,
+    "win_reason": "Better complete management",
+    "what_they_love": [
+      "Spa-specific software",
+      "Comprehensive features",
+      "Multi-location support",
+      "Established player"
+    ],
+    "what_they_hate": [
+      "Legacy platform",
+      "Limited modern design",
+      "Support quality concerns",
+      "Expensive maintenance"
+    ],
+    "landmines": [
+      {
+        "k": "modern",
+        "t": "Is this outdated technology?"
+      },
+      {
+        "k": "ux",
+        "t": "Will your team struggle with the interface?"
+      },
+      {
+        "k": "cost",
+        "t": "Is the pricing justified?"
+      }
+    ],
+    "voice": null
+  },
+  "springer_miller": {
+    "name": "Springer-Miller",
+    "id": null,
+    "win_reason": "Better business solutions",
+    "what_they_love": [
+      "Salon and spa software",
+      "Comprehensive features",
+      "Established provider",
+      "Multi-location support"
+    ],
+    "what_they_hate": [
+      "Possibly legacy technology",
+      "Limited online presence",
+      "Support quality varies",
+      "Pricing not transparent"
+    ],
+    "landmines": [
+      {
+        "k": "transparency",
+        "t": "Why is there limited information available?"
+      },
+      {
+        "k": "modern",
+        "t": "Is this built on modern technology?"
+      },
+      {
+        "k": "support",
+        "t": "What level of support do you get?"
+      }
+    ],
+    "voice": null
+  },
+  "square": {
+    "name": "Square",
+    "id": null,
+    "win_reason": "Better salon features",
+    "what_they_love": [
+      "Best-in-class POS system with retail focus",
+      "Seamless payment processing and competitive rates",
+      "Excellent hardware ecosystem and support",
+      "Strong integrations with major platforms"
+    ],
+    "what_they_hate": [
+      "Appointment scheduling features are bare-bones",
+      "Designed for retail, not service-based businesses",
+      "Staff management and commission tracking is limited",
+      "No native client relationship management"
+    ],
+    "landmines": [
+      {
+        "k": "booking",
+        "t": "How robust is the appointment scheduling?"
+      },
+      {
+        "k": "staff",
+        "t": "Can you manage staff and commissions?"
+      },
+      {
+        "k": "services",
+        "t": "Is it designed for service businesses?"
+      }
+    ],
+    "voice": null
+  },
+  "styleseat": {
+    "name": "StyleSeat",
+    "id": null,
+    "win_reason": "More complete solution",
+    "what_they_love": [
+      "Beauty professional focus",
+      "Online booking strong",
+      "Mobile app for clients",
+      "Growing platform"
+    ],
+    "what_they_hate": [
+      "Limited POS capabilities",
+      "Not a full salon management system",
+      "Limited inventory features",
+      "May be better for independent professionals"
+    ],
+    "landmines": [
+      {
+        "k": "scope",
+        "t": "Is this for individual professionals or salon businesses?"
+      },
+      {
+        "k": "pos",
+        "t": "How complete is the point of sale?"
+      },
+      {
+        "k": "features",
+        "t": "What salon features are missing?"
+      }
+    ],
+    "voice": null
+  },
+  "touchsuite": {
+    "name": "TouchSuite",
+    "id": null,
+    "win_reason": "Better complete suite",
+    "what_they_love": [
+      "Comprehensive salon software",
+      "POS included",
+      "Multi-location support",
+      "Long-established player"
+    ],
+    "what_they_hate": [
+      "Possibly outdated interface",
+      "Support quality concerns",
+      "High implementation costs",
+      "Less innovation than newer competitors"
+    ],
+    "landmines": [
+      {
+        "k": "ux",
+        "t": "Is the interface modern or outdated?"
+      },
+      {
+        "k": "implementation",
+        "t": "What's the cost and timeline for implementation?"
+      },
+      {
+        "k": "innovation",
+        "t": "How often are new features added?"
+      }
+    ],
+    "voice": null
+  },
+  "vagaro": {
+    "name": "Vagaro",
+    "id": null,
+    "win_reason": "Better full features",
+    "what_they_love": [
+      "Comprehensive salon, spa, and fitness management",
+      "Beautiful client-facing mobile app with online booking",
+      "Strong reporting and business analytics",
+      "Integrated payments and loyalty program tools"
+    ],
+    "what_they_hate": [
+      "Starting at $99/month, expensive for small salons",
+      "Implementation requires professional onboarding",
+      "Learning curve is steep for non-technical staff",
+      "Support response times can be slow"
+    ],
+    "landmines": [
+      {
+        "k": "cost",
+        "t": "Is Vagaro pricing justified for your salon size?"
+      },
+      {
+        "k": "implementation",
+        "t": "How complex is the setup?"
+      },
+      {
+        "k": "fit",
+        "t": "Are you paying for features you won't use?"
+      }
+    ],
+    "voice": null
+  },
+  "zenoti": {
+    "name": "Zenoti",
+    "id": null,
+    "win_reason": "Better value proposition",
+    "what_they_love": [
+      "Enterprise-grade salon and spa management platform",
+      "Advanced mobile app with client engagement features",
+      "AI-powered recommendations and analytics",
+      "Comprehensive staff management and scheduling"
+    ],
+    "what_they_hate": [
+      "Premium pricing starts at $199/month for small salons",
+      "Complex platform with significant learning curve",
+      "May require professional implementation services",
+      "Overkill for salons with less than 20 employees"
+    ],
+    "landmines": [
+      {
+        "k": "cost",
+        "t": "Is Zenoti pricing appropriate for your business?"
+      },
+      {
+        "k": "complexity",
+        "t": "How much training will your team need?"
+      },
+      {
+        "k": "fit",
+        "t": "Are you paying for enterprise features?"
+      }
+    ],
+    "voice": null
+  },
+  "birdeye": {
+    "name": "Birdeye",
+    "id": null,
+    "win_reason": "Better reputation management",
+    "what_they_love": [
+      "Reputation and review management",
+      "Customer engagement platform",
+      "Multi-location support",
+      "Strong integrations"
+    ],
+    "what_they_hate": [
+      "Not a full salon management system",
+      "Requires integration with other systems",
+      "Focused on reputation, not operations",
+      "Additional cost to core software"
+    ],
+    "landmines": [
+      {
+        "k": "fit",
+        "t": "Is this an add-on or core system?"
+      },
+      {
+        "k": "cost",
+        "t": "What's the total cost with your salon software?"
+      },
+      {
+        "k": "integration",
+        "t": "How well does it integrate with your main system?"
+      }
+    ],
+    "voice": null
+  },
+  "versum": {
+    "name": "Versum",
+    "id": null,
+    "win_reason": "Better salon management",
+    "what_they_love": [
+      "Cloud-based platform",
+      "Salon software focus",
+      "Multi-location support",
+      "Client management"
+    ],
+    "what_they_hate": [
+      "Limited market information",
+      "Possibly smaller company",
+      "Limited integration options",
+      "Support quality questions"
+    ],
+    "landmines": [
+      {
+        "k": "stability",
+        "t": "Is this company viable long-term?"
+      },
+      {
+        "k": "features",
+        "t": "What features does it provide?"
+      },
+      {
+        "k": "support",
+        "t": "What kind of support can you expect?"
+      }
+    ],
+    "voice": null
+  }
+}
