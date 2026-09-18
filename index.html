@@ -1,0 +1,3253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meevo Competitive Battlecards</title>
+<style>
+:root{
+  --ocean:#204855; --ocean2:#216479; --ocean3:#2c7f97;
+  --terra:#A75F37; --terra2:#c47a4f;
+  --plum:#4B3951; --sage:#9A997B; --sand:#BF9982;
+  --red:#b54040; --green:#3f7d5a; --amber:#c9932f;
+  --bg:#141b1f; --bg2:#182227; --panel:#1c282e; --panel2:#213038;
+  --border:#2c3d45; --text:#eef3f4; --muted:#93a6ae; --muted2:#6f838c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--ocean3);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{background:linear-gradient(120deg,#17323c 0%,var(--ocean) 70%);padding:22px 30px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px}
+.logo{width:46px;height:46px;border-radius:11px;background:var(--ocean3);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#fff;flex:none;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.htext h1{font-size:21px;font-weight:800;letter-spacing:.2px}
+.htext p{font-size:12.5px;color:#cfe0e6;margin-top:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 30px 60px}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:30px}
+@media(max-width:820px){.tools{grid-template-columns:1fr}}
+.tool{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px 17px}
+.tool h3{font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--ocean3);margin-bottom:4px;font-weight:700}
+.tool .sub{font-size:12px;color:var(--text);margin-bottom:11px}
+.row{display:flex;gap:8px}
+input[type=text],textarea,select{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:10px 12px;font-size:13.5px;font-family:inherit;resize:vertical}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--ocean3)}
+select{max-width:150px;flex:none}
+.btn{background:var(--ocean2);border:none;border-radius:10px;color:#fff;font-weight:700;font-size:13px;padding:10px 15px;cursor:pointer;white-space:nowrap;transition:background .15s}
+.btn:hover{background:var(--ocean3)}
+.btn.alert{background:var(--terra)}
+.btn.alert:hover{background:var(--terra2)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.answer{margin-top:12px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--ocean3);border-radius:10px;padding:12px 14px;font-size:13px;color:#d7e2e6;line-height:1.55;display:none;white-space:pre-wrap}
+.answer.show{display:block}
+.answer .src{display:block;margin-top:8px;font-size:11px;color:var(--muted2)}
+.toast{margin-top:10px;font-size:12.5px;padding:9px 12px;border-radius:9px;display:none}
+.toast.ok{display:block;background:rgba(63,125,90,.16);border:1px solid #345f47;color:#9fd8b6}
+.toast.err{display:block;background:rgba(181,64,64,.16);border:1px solid #6d3232;color:#e0a3a3}
+.mini{font-size:11px;color:var(--text);margin-top:8px}
+.sect-label{font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:6px 2px 14px}
+.homewrap{display:grid;grid-template-columns:325px 1fr;gap:20px;align-items:start}
+@media(max-width:900px){.homewrap{grid-template-columns:1fr}}
+.intel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px 16px 18px}
+.intel h3{font-size:13px;letter-spacing:.5px;text-transform:uppercase;color:var(--terra2);font-weight:800;margin-bottom:3px}
+.intel .sub{font-size:12px;color:var(--text);margin-bottom:12px}
+.intel select,.intel textarea{margin-bottom:9px}
+.intel textarea{min-height:74px}
+.intel .btn.alert{width:100%}
+.feedhead{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:16px}
+.feed{margin-top:10px;display:flex;flex-direction:column;gap:10px;max-height:440px;overflow:auto}
+.feed .fitem{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--terra);border-radius:10px;padding:10px 30px 10px 12px;position:relative}
+.feed .fdel{position:absolute;top:7px;right:7px;background:none;border:none;color:var(--muted2);cursor:pointer;font-size:15px;line-height:1;padding:2px 6px;border-radius:6px}
+.feed .fdel:hover{color:var(--red);background:rgba(181,64,64,.14)}
+.feed .fitem .fmeta{font-size:11px;color:var(--muted2);margin-bottom:4px}
+.feed .fitem .fmeta b{color:var(--sand)}
+.feed .fitem .fmsg{font-size:12.5px;color:#d3dee2;line-height:1.45;white-space:pre-wrap}
+.feed .fempty{font-size:12px;color:var(--muted2)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+@media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:17px 16px 15px;cursor:pointer;position:relative;transition:transform .13s,border-color .13s,background .13s;min-height:150px;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-3px);border-color:var(--ocean3);background:var(--panel2)}
+.cbadge{position:absolute;top:12px;right:12px;font-size:9.5px;font-weight:800;letter-spacing:.5px;background:var(--terra);color:#fff;padding:3px 7px;border-radius:20px}
+.cname{font-size:17px;font-weight:800;letter-spacing:.2px;padding-right:8px}
+.cseg{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.4px;color:#cfe0e6;background:var(--ocean);padding:3px 8px;border-radius:6px;margin-top:8px;align-self:flex-start}
+.cwin{font-size:12px;color:var(--muted);margin-top:11px;flex:1}
+.cwin b{color:var(--sand);font-weight:700}
+.cwins{margin-top:11px;border-top:1px solid var(--border);padding-top:9px}
+.cwins-h{font-size:9.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#7fd0a3;margin-bottom:6px}
+.cwin-i{font-size:11.5px;color:#c3d0d5;padding-left:15px;position:relative;margin-bottom:4px;line-height:1.35}
+.cwin-i:before{content:"+";position:absolute;left:0;top:0;color:#5fb185;font-weight:800}
+.copen{font-size:11px;color:var(--ocean3);font-weight:700;margin-top:12px}
+#detail{display:none}
+.back{background:none;border:1px solid var(--border);color:var(--muted);border-radius:9px;padding:7px 13px;font-size:12.5px;font-weight:600;cursor:pointer;margin-bottom:18px}
+.back:hover{border-color:var(--ocean3);color:var(--text)}
+.dhead{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:20px}
+.dhead .dname{font-size:27px;font-weight:800}
+.dhead .dmeta{margin-top:5px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tag{font-size:10.5px;font-weight:700;letter-spacing:.4px;padding:3px 9px;border-radius:6px}
+.tag.seg{background:var(--ocean);color:#cfe0e6}
+.tag.pri{background:var(--terra);color:#fff}
+.dhead .site{margin-left:auto;font-size:12.5px;font-weight:700}
+.dsummary{font-size:14px;color:var(--muted);margin:-6px 0 22px;max-width:760px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.cols{grid-template-columns:1fr}}
+.block{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px 17px}
+.block h4{font-size:12px;letter-spacing:.5px;text-transform:uppercase;font-weight:800;margin-bottom:11px;display:flex;align-items:center;gap:7px}
+.block.win h4{color:#7fd0a3}
+.block.def h4{color:#e6b45f}
+.block.holes h4{color:#e59aa0}
+.block.counter h4{color:var(--ocean3)}
+.block ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.block li{font-size:13px;color:#d3dee2;padding-left:20px;position:relative;line-height:1.45}
+.block li:before{position:absolute;left:0;top:0;font-weight:800}
+.block.win li:before{content:"+";color:#5fb185}
+.block.def li:before{content:"!";color:#d79f45}
+.block.holes li:before{content:"\2212";color:#cf7278}
+.block.counter li:before{content:"\2192";color:var(--ocean3)}
+.full{grid-column:1 / -1}
+.voice{background:linear-gradient(135deg,#22333b,#1d2a30);border:1px solid var(--border);border-left:3px solid var(--terra);border-radius:14px;padding:16px 18px;margin-top:16px}
+.voice .q{font-size:15px;font-style:italic;color:#eef3f4;line-height:1.5}
+.voice .attr{font-size:11.5px;color:var(--muted2);margin-top:9px}
+.lm{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:620px){.lm{grid-template-columns:1fr}}
+.lm .q{background:var(--bg2);border:1px solid var(--border);border-radius:11px;padding:11px 13px}
+.lm .q .k{font-size:10px;font-weight:800;letter-spacing:.5px;color:var(--terra2);text-transform:uppercase;margin-bottom:4px}
+.lm .q .t{font-size:12.5px;color:#d3dee2;line-height:1.45}
+.tier-label{font-size:14px;font-weight:800;color:var(--ocean3);border-bottom:2px solid var(--border);padding-bottom:8px;margin-bottom:16px;margin-top:8px}
+footer{color:var(--muted2);font-size:11.5px;text-align:center;margin-top:40px;border-top:1px solid var(--border);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="logo">M</div>
+  <div class="htext">
+    <h1>Competitive Battlecards</h1>
+    <p>Know the field. Win the deal. &nbsp;·&nbsp; 72 competitors organized by tier</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="tools">
+  <div class="tool">
+    <h3>Ask the field</h3>
+    <div class="sub">Search any of 72 competitors for positioning, landmine questions, and voice-of-customer quotes.</div>
+    <div class="row">
+      <select id="searchComp"><option value="">All competitors</option></select>
+      <input type="text" id="searchQ" placeholder="e.g. Zenoti strengths?" onkeydown="if(event.key==='Enter')runSearch()">
+      <button class="btn" id="searchBtn" onclick="runSearch()">Ask</button>
+    </div>
+    <div class="answer" id="searchAnswer"></div>
+  </div>
+
+  <div class="tool">
+    <h3>Field alert → all reps</h3>
+    <div class="sub">Heard something live? Post it and it emails the whole team instantly.</div>
+    <div class="row" style="margin-bottom:8px">
+      <input type="text" id="alertName" placeholder="Your name" style="max-width:180px;flex:none">
+      <input type="text" id="alertMsg" placeholder="e.g. Zenoti down 6 hours!" onkeydown="if(event.key==='Enter')sendAlert()">
+      <button class="btn alert" id="alertBtn" onclick="sendAlert()">Send</button>
+    </div>
+    <div class="toast" id="alertToast"></div>
+    <div class="mini">Alerts send immediately to every rep, stamped with your name and the time.</div>
+  </div>
+</div>
+
+<div id="home" class="homewrap">
+  <aside class="intel">
+    <h3>Client Intel</h3>
+    <div class="sub">News from our CSMs on existing Meevo clients.</div>
+    <select id="intelCsm">
+      <option value="">Select your name</option>
+      <option>Priscilla Hill-Smith</option>
+      <option>Josie Galan</option>
+    </select>
+    <textarea id="intelMsg" placeholder="Share what you're hearing from existing clients..."></textarea>
+    <button class="btn alert" id="intelBtn" onclick="postIntel()">Post &amp; alert the team</button>
+    <div class="toast" id="intelToast"></div>
+    <div class="feedhead">Recent intel</div>
+    <div class="feed" id="intelFeed"><div class="fempty">Loading recent intel...</div></div>
+  </aside>
+  <div id="panels"></div>
+</div>
+
+<div id="detail"></div>
+
+<footer>Meevo Sales Enablement · Competitive Battlecards 2026 · Confidential</footer>
+</div>
+
+<script>
+var WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwF9biwv-QQPahDrQXkvcxFybGcBSP0LesUIaWK-2jWbuwRPglxaZZ29QGRoO12Xepy0w/exec";
+var GROQ_API_KEY = "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";
+var GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
+
+var COMPS = {
+  "acuity": {
+    "name": "Acuity",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://acuityscheduling.com",
+    "links": [
+      "https://acuityscheduling.com"
+    ],
+    "tagline": "All-in-one scheduling for appointment booking and client management",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "All-in-one scheduling for appointment booking and client management",
+    "lead": [
+      "Superior customer support",
+      "Flexible customization"
+    ],
+    "defend": [
+      "Automated appointment booking",
+      "Intuitive design and easy to navigate",
+      "Client facing side very attractive and easy to customize"
+    ],
+    "holes": [
+      "Hard to reach customer service",
+      "Data migration risks and data loss",
+      "Doesn't natively integrate with third-party calendars",
+      "Customer service nonexistent"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Reliability",
+        "t": "How consistently has Acuity worked for your team, and have you encountered glitches?"
+      },
+      {
+        "k": "Client self-service",
+        "t": "When clients need to change appointments, does the rescheduling process work smoothly?"
+      },
+      {
+        "k": "Integration",
+        "t": "How well do booking, payments, and staff scheduling work together?"
+      }
+    ],
+    "voice": {
+      "q": "'Acuity is glitchy'",
+      "attr": "From Millennium Systems International call data"
+    },
+    "tier": "smb"
+  },
+  "aestheticspro": {
+    "name": "Aesthetics Pro",
+    "segment": "Med Spa",
+    "group": "crayon",
+    "site": "https://aestheticspro.com",
+    "links": [
+      "https://aestheticspro.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "specialist"
+  },
+  "aesthetixcrm": {
+    "name": "Aesthetix CRM",
+    "segment": "Med Spa",
+    "group": "crayon",
+    "site": "https://aesthetixcrm.com",
+    "links": [
+      "https://aesthetixcrm.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "specialist"
+  },
+  "aura": {
+    "name": "Aura",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://aurasalonware.com",
+    "links": [
+      "https://aurasalonware.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "book4time": {
+    "name": "Book4Time",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.book4time.com",
+    "links": [
+      "https://www.book4time.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Transparent pricing"
+    ],
+    "defend": [
+      "Comprehensive features: reporting, customer data, loyalty, inventory",
+      "User-friendly, cloud-based, and consistently reliable",
+      "Fast performance and responsive support"
+    ],
+    "holes": [
+      "High cost",
+      "Security concerns with scheduling, deposits, POS, booking, gift cards",
+      "Connectivity and usability issues with weak internet"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Integration",
+        "t": "Book4Time integrates with Marriott POS - how critical is hotel integration for you?"
+      },
+      {
+        "k": "Online booking",
+        "t": "Which online-booking requirements are essential for you?"
+      },
+      {
+        "k": "Scalability",
+        "t": "How does Book4Time scale as you add locations or staff?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "booksy": {
+    "name": "Booksy",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://booksy.com",
+    "links": [
+      "https://booksy.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Flexible customization",
+      "Transparent pricing"
+    ],
+    "defend": [
+      "Very user friendly and easy to manage remotely",
+      "App is extremely well laid-out and aesthetically appealing",
+      "Easy for clients to book online 24/7"
+    ],
+    "holes": [
+      "Lack of customization for text marketing campaigns",
+      "No inventory control functionality",
+      "Inability to retract unfair reviews",
+      "Expensive with hidden charges like Booksy Boost"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Pricing",
+        "t": "As your team grows, have you modeled Booksy's full cost?"
+      },
+      {
+        "k": "Reliability",
+        "t": "How confident are you that Booksy protects every appointment?"
+      },
+      {
+        "k": "Support",
+        "t": "When booking issues need help, who owns the escalation?"
+      },
+      {
+        "k": "Hardware",
+        "t": "Which hardware do you rely on and does Booksy support the complete workflow?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "boulevard": {
+    "name": "Boulevard",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://boulevard.app",
+    "links": [
+      "https://boulevard.app"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Seamless integrations",
+      "Flexible customization"
+    ],
+    "defend": [
+      "Comprehensive suite of features for appointment scheduling",
+      "Client management capabilities",
+      "Point-of-sale functionality",
+      "Business analytics and reporting"
+    ],
+    "holes": [
+      "May lack advanced enterprise-level features",
+      "Limited customization for highly specific needs",
+      "Onboarding and implementation challenges reported",
+      "Integration limitations with legacy systems"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Enterprise scalability",
+        "t": "As your business grows, which enterprise-level features would become critical?"
+      },
+      {
+        "k": "Customization limitations",
+        "t": "How custom do your operational workflows need to be, and can Boulevard accommodate them?"
+      },
+      {
+        "k": "Implementation complexity",
+        "t": "What has your experience been with onboarding to new platforms?"
+      }
+    ],
+    "voice": null,
+    "tier": "mid-market"
+  },
+  "clienttrakspasalonsoftware": {
+    "name": "Client Trak Spa Salon Software",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.clienttrak.com",
+    "links": [
+      "https://www.clienttrak.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "clover": {
+    "name": "Clover",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.clover.com",
+    "links": [
+      "https://www.clover.com"
+    ],
+    "tagline": "Payment processing and POS system",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "Payment processing and POS system",
+    "lead": [
+      "Superior customer support",
+      "Reliable and stable platform",
+      "Seamless integrations",
+      "Flexible customization"
+    ],
+    "defend": [
+      "Easy setup with 'plug and pay' capability",
+      "Quick replacement service for hardware issues",
+      "Good handheld devices"
+    ],
+    "holes": [
+      "Poor customer service with unresponsive third-party reps",
+      "Frequent downtime and hardware issues from Wi-Fi reliance",
+      "Confusing reporting and inconsistent QuickBooks integration",
+      "Higher online payment processing rates"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Customer Support",
+        "t": "How responsive is Clover's support when you have issues?"
+      },
+      {
+        "k": "Integration",
+        "t": "How seamlessly does Clover integrate with accounting and marketing tools?"
+      },
+      {
+        "k": "Hardware Reliability",
+        "t": "How often do you experience downtime or hardware failures?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "elite": {
+    "name": "Elite",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://elite-software.com",
+    "links": [
+      "https://elite-software.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "mid-market"
+  },
+  "envision": {
+    "name": "Envision",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.envisionsalonware.com",
+    "links": [
+      "https://www.envisionsalonware.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "mid-market"
+  },
+  "fresha": {
+    "name": "Fresha",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.fresha.com",
+    "links": [
+      "https://www.fresha.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Reliable and stable platform",
+      "Flexible customization",
+      "Transparent pricing"
+    ],
+    "defend": [
+      "Extremely easy to set up and use",
+      "Very good customer service team",
+      "Credit card integration works well with card terminals",
+      "Seamless payment processing"
+    ],
+    "holes": [
+      "Cannot create and send custom client intake forms",
+      "Limited customization for client communications",
+      "Hidden fees and dishonest charges",
+      "Glitches and bugs causing system freezes",
+      "Forced marketplace placement with 20% commission"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Fees and marketplace",
+        "t": "When modeling Fresha's total cost at your expected volume, how are processing fees, marketplace fees, and any plan limits accounted for?"
+      },
+      {
+        "k": "Integration challenges",
+        "t": "For your accounting workflow, what must sync automatically and where would manual reconciliation still create work?"
+      },
+      {
+        "k": "Customer support",
+        "t": "What level of support would you need when your team grows or a critical workflow needs attention?"
+      }
+    ],
+    "voice": null,
+    "tier": "mid-market"
+  },
+  "glossgenius": {
+    "name": "Gloss Genius",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://glossgenius.com",
+    "links": [
+      "https://glossgenius.com"
+    ],
+    "tagline": "Appointment booking for independent beauty professionals",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "Appointment booking for independent beauty professionals",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Positioning",
+        "t": "How would you describe Gloss Genius's positioning compared to us?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "growthzilla": {
+    "name": "Growthzilla",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.growthzilla.com",
+    "links": [
+      "https://www.growthzilla.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Superior customer support",
+      "Seamless integrations",
+      "Flexible customization"
+    ],
+    "defend": [
+      "Unified platform for booking, POS, marketing, and client history",
+      "Client retention tools like automated SMS campaigns and loyalty programs",
+      "Integrated checkout experience with digital tips and self-checkout",
+      "Simple onboarding and usability for non-technical salon staff"
+    ],
+    "holes": [
+      "Hard to reach customer service representatives and difficult communication process",
+      "Integration and data migration from other systems is less than smooth",
+      "Does not natively integrate with third-party calendars",
+      "Customer service is nonexistent with generic responses and no improvement interest"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Customer support accessibility",
+        "t": "How important is direct phone support for your business, and what is your acceptable response time?"
+      },
+      {
+        "k": "Data migration",
+        "t": "What safeguards do you need to ensure customer data doesn't get lost during system migration?"
+      },
+      {
+        "k": "Integration requirements",
+        "t": "Which third-party calendars or systems must Growthzilla connect with for your operations?"
+      },
+      {
+        "k": "System improvement velocity",
+        "t": "How important is it that your software provider actively develops new features and improvements?"
+      }
+    ],
+    "voice": null,
+    "tier": "mid-market"
+  },
+  "guestvision": {
+    "name": "Guest Vision",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.guestvision.com",
+    "links": [
+      "https://www.guestvision.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "insight": {
+    "name": "Insight",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.insightsalonadmin.com",
+    "links": [
+      "https://www.insightsalonadmin.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "mid-market"
+  },
+  "korvue": {
+    "name": "Korvue",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.korvue.com",
+    "links": [
+      "https://www.korvue.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Superior customer support",
+      "Reliable and stable platform",
+      "Flexible customization"
+    ],
+    "defend": [
+      "Lots of flexibility and customization"
+    ],
+    "holes": [
+      "Not very user-friendly",
+      "Poor customer support service",
+      "Very buggy software with lots of glitches"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Reliability",
+        "t": "How reliable is KORVUE during peak operational hours, and have you experienced downtime?"
+      },
+      {
+        "k": "User experience",
+        "t": "How intuitive is KORVUE's interface, and how does it affect your team's productivity?"
+      },
+      {
+        "k": "Customer support",
+        "t": "How responsive and effective is KORVUE's support when you encounter issues?"
+      }
+    ],
+    "voice": {
+      "q": "The system has many errors and will shut down/freeze often",
+      "attr": "User review"
+    },
+    "tier": "mid-market"
+  },
+  "mangomint": {
+    "name": "Mangomint",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.mangomint.com",
+    "links": [
+      "https://www.mangomint.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "Easy and seamless integration",
+      "Fantastic reporting capabilities",
+      "Ease of use and intuitive interface"
+    ],
+    "holes": [
+      "Freezes and scanning problems",
+      "Lengthy checkout processes",
+      "Real-time system updates without confirmation",
+      "Issues with deposit and prepurchased package handling"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability",
+        "t": "When the system is unavailable, what is your backup process for checking in clients?"
+      },
+      {
+        "k": "Fees and cost predictability",
+        "t": "How would your monthly bill change if you added a second location or more staff?"
+      },
+      {
+        "k": "Support model",
+        "t": "Would chat-first support meet your needs for urgent operational issues?"
+      }
+    ],
+    "voice": {
+      "q": "System was down twice since May",
+      "attr": "Capterra reviewer"
+    },
+    "tier": "mid-market"
+  },
+  "massagebook": {
+    "name": "Massage Book",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.massagebook.com",
+    "links": [
+      "https://www.massagebook.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "mikal": {
+    "name": "Mikal",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.mikal.com",
+    "links": [
+      "https://www.mikal.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "milano": {
+    "name": "Milano",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.milanosoftware.com",
+    "links": [
+      "https://www.milanosoftware.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "mindbody": {
+    "name": "MindBody",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.mindbody.io",
+    "links": [
+      "https://www.mindbody.io"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Superior customer support",
+      "Seamless integrations",
+      "Flexible customization"
+    ],
+    "defend": [
+      "Exceptionally intuitive and helpful appointment scheduling functionality",
+      "Visually up-to-date, clean, simple, and appealing interface",
+      "Numerous features with robust API and good reporting capabilities"
+    ],
+    "holes": [
+      "Integration with existing platforms has been very difficult and cumbersome",
+      "Inbuilt marketing functions are not very effective and limited integration capabilities",
+      "Poor customer service with hours spent on hold trying to find someone who can help",
+      "Customer service is abysmal and fixes often don't work the next day"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability",
+        "t": "How often do your team members encounter login, syncing, or class-visibility problems in Mindbody?"
+      },
+      {
+        "k": "Fallback processes",
+        "t": "When Mindbody is unavailable or information is not syncing, what is your actual fallback process?"
+      },
+      {
+        "k": "Spa-specific functionality",
+        "t": "Which parts of Mindbody feel purpose-built for your spa, and where are you relying on workarounds?"
+      },
+      {
+        "k": "Booking experience",
+        "t": "Can you walk me through the booking experience from the client's perspective?"
+      }
+    ],
+    "voice": {
+      "q": "The system has many errors and will shut down/freeze often affecting user ability to access bookings",
+      "attr": "User review and troubleshooting data"
+    },
+    "tier": "enterprise"
+  },
+  "mya": {
+    "name": "MYA",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.joinmya.com",
+    "links": [
+      "https://www.joinmya.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "mid-market"
+  },
+  "mytime": {
+    "name": "MyTime",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://mytime.com",
+    "links": [
+      "https://mytime.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Seamless integrations"
+    ],
+    "defend": [
+      "User-Friendly and Integrated",
+      "Affordable Pricing",
+      "Responsive Customer Service"
+    ],
+    "holes": [
+      "Feature Changes and Bug Fixes",
+      "POS Integration Bias",
+      "Contact Import Limitations"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Onboarding and rollout",
+        "t": "When you add a location, how long does it take to configure the POS, booking system, and client data?"
+      },
+      {
+        "k": "Integrations and coordination",
+        "t": "Are booking, payments, marketing, and client data connected in one workflow?"
+      },
+      {
+        "k": "Reliability and operational visibility",
+        "t": "Which operational metrics can leadership trust as current when asking how all locations are performing?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "nextech": {
+    "name": "Nextech",
+    "segment": "Med Spa",
+    "group": "crayon",
+    "site": "https://www.nextechsystems.com",
+    "links": [
+      "https://www.nextechsystems.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "Agentic AI that initiates actions and creates connected, intelligent workflows",
+      "Prevention-first approach to revenue cycle management reducing claim denials",
+      "Integrated specialty-practice operations reducing workflow friction",
+      "Compliance and cybersecurity readiness support"
+    ],
+    "holes": [
+      "No documented weaknesses in Insights; positioning focuses on strengths rather than known failures"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability and workflow continuity",
+        "t": "When Nextech describes agentic AI workflows, what happens when an automated action is incorrect or delayed?"
+      },
+      {
+        "k": "Workflow accuracy verification",
+        "t": "How do you verify that business-critical workflows are completing accurately rather than simply appearing connected?"
+      },
+      {
+        "k": "Onboarding complexity",
+        "t": "Nextech is optimizing its Early Adopter program; what implementation support would your team need?"
+      },
+      {
+        "k": "Integration and data flow",
+        "t": "Which integrations are actually live in your environment, and where does staff still move data manually?"
+      }
+    ],
+    "voice": null,
+    "tier": "specialist"
+  },
+  "phorest": {
+    "name": "Phorest",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.phorest.com",
+    "links": [
+      "https://www.phorest.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Superior customer support",
+      "Seamless integrations",
+      "Flexible customization"
+    ],
+    "defend": [
+      "Very easy to understand and use for everyone from service provider to manager",
+      "Very good customer service team",
+      "The marketing capabilities are very useful and helpful to businesses",
+      "Strong data security and information protection"
+    ],
+    "holes": [
+      "Very poor customer service care and no follow-up after integration",
+      "Too many reports that are too complex and not user-friendly",
+      "Cloud-based reliance on internet connection can cause sales loss during outages",
+      "Not honest full disclosure on contract terms and auto-renewal policies"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability and uptime",
+        "t": "Phorest reports 99.999% uptime for 2025; what uptime commitment, incident process, and service-credit terms would you want documented?"
+      },
+      {
+        "k": "Fees and payments",
+        "t": "Before selecting Phorest, have you received a complete picture of subscription, payment-processing, per-client, add-on, and transaction-related costs?"
+      },
+      {
+        "k": "Onboarding and migration",
+        "t": "Phorest says migration includes tailored setup, data import, and zero downtime; what migration plan, test sign-off, and rollback process would you require?"
+      },
+      {
+        "k": "Customer support quality",
+        "t": "Phorest reports a 21-minute median first reply time and 96.91% satisfaction; which support metrics and service-level commitments would you want in your contract?"
+      }
+    ],
+    "voice": null,
+    "tier": "mid-market"
+  },
+  "prosolutions": {
+    "name": "ProSolutions",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.prosolutions.com",
+    "links": [
+      "https://www.prosolutions.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "rosy": {
+    "name": "Rosy",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.rosysalon.com",
+    "links": [
+      "https://www.rosysalon.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "salonultimate": {
+    "name": "Salon Ultimate",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://salonultimate.com",
+    "links": [
+      "https://salonultimate.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "salonbiz": {
+    "name": "SalonBiz",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.salonbiz.com",
+    "links": [
+      "https://www.salonbiz.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Superior customer support",
+      "Flexible customization"
+    ],
+    "defend": [
+      "Very easy to learn and use with alignment to Aveda standards",
+      "Ability to customize the service for each stylist",
+      "Ease of new hire learning and education",
+      "Direct support for Aveda-affiliated salons and spas"
+    ],
+    "holes": [
+      "Customer support can have extremely lengthy wait times and limited helpfulness",
+      "Reports can be overwhelming and not productive; managers must check several reports",
+      "Features don't work in Canada",
+      "Moving appointments is difficult and multi-stepped, appointment notes deleted when moving clients"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability",
+        "t": "When your team is busiest, how confident are you that the system will remain reliable?"
+      },
+      {
+        "k": "Support quality",
+        "t": "If an issue affects front-desk operations during a busy period, what response time have you been promised?"
+      },
+      {
+        "k": "Reporting usability",
+        "t": "Can you efficiently extract the operational data you need from multiple reports?"
+      },
+      {
+        "k": "Workflow efficiency",
+        "t": "How many steps are required for common tasks like moving appointments?"
+      }
+    ],
+    "voice": null,
+    "tier": "mid-market"
+  },
+  "salonclouds": {
+    "name": "SalonClouds",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.salonclouds.com",
+    "links": [
+      "https://www.salonclouds.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "mid-market"
+  },
+  "schedulicity": {
+    "name": "Schedulicity",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.schedulicity.com",
+    "links": [
+      "https://www.schedulicity.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Seamless integrations",
+      "Flexible customization"
+    ],
+    "defend": [
+      "Comprehensive appointment scheduling and calendar management",
+      "User-friendly interface with intuitive navigation",
+      "Effective client management and marketing tools",
+      "Seamless online booking and payment processing"
+    ],
+    "holes": [
+      "Limited customization options",
+      "Occasional technical issues with app performance",
+      "Integration challenges with third-party systems",
+      "Dependency on internet connectivity"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability and business continuity",
+        "t": "How confident are you in Schedulicity's reliability given their recent acquisition by Vagaro?"
+      },
+      {
+        "k": "Onboarding and transition risks",
+        "t": "What has Schedulicity communicated about onboarding as they transition users to Vagaro's platform?"
+      },
+      {
+        "k": "Customer support quality",
+        "t": "If you encounter urgent issues, what level of support can you expect from Schedulicity now?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "shortcuts": {
+    "name": "Shortcuts",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.shortcutsusa.com",
+    "links": [
+      "https://www.shortcutsusa.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "square": {
+    "name": "Square",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://squareup.com",
+    "links": [
+      "https://squareup.com"
+    ],
+    "tagline": "Payment processing and POS",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "Payment processing and POS",
+    "lead": [
+      "Superior customer support",
+      "Reliable and stable platform",
+      "Flexible customization"
+    ],
+    "defend": [
+      "Intuitive design with clean and up-to-date interface",
+      "Easy inventory and sales tax management",
+      "Ability to use Square payment terminal anywhere",
+      "Flexible multi-location and multi-format support"
+    ],
+    "holes": [
+      "Tends to be glitchy despite updates",
+      "Can be difficult to export data for reporting",
+      "Customer service help may not be satisfactory",
+      "Payment processing and verification delays",
+      "Data sync errors with third-party systems"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability",
+        "t": "When Square or connected systems are unavailable, what is your documented fallback for taking payments and accessing bookings?"
+      },
+      {
+        "k": "Fees and total cost",
+        "t": "When you calculate the full cost of Square, are you including processing, hardware, add-ons, integrations, and staff time spent correcting data?"
+      },
+      {
+        "k": "Hardware and support",
+        "t": "Which hardware do you need and who owns troubleshooting when a device or checkout workflow fails?"
+      }
+    ],
+    "voice": {
+      "q": "Square-Vish sync errors affecting color formulas and ticket pricing, requiring manual corrections",
+      "attr": "Buyer interview"
+    },
+    "tier": "smb"
+  },
+  "squire": {
+    "name": "Squire",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.gosquire.com",
+    "links": [
+      "https://www.gosquire.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "Commerce Media Partnerships enabling new revenue streams",
+      "Data-Driven Personalization capabilities",
+      "Platform Ecosystem and Service Integration"
+    ],
+    "holes": [
+      "Learning curve and onboarding complexity"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability and support",
+        "t": "How confident are you in SQUIRE's uptime during your busiest periods?"
+      },
+      {
+        "k": "Fees and cost transparency",
+        "t": "Can you walk me through all fees including transaction, integration, and hardware costs?"
+      },
+      {
+        "k": "Hardware support and flexibility",
+        "t": "What has your experience been with SQUIRE's hardware compatibility?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "stx": {
+    "name": "STX",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.stxsoftware.com",
+    "links": [
+      "https://www.stxsoftware.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "styleseat": {
+    "name": "StyleSeat",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.styleseat.com",
+    "links": [
+      "https://www.styleseat.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Flexible customization"
+    ],
+    "defend": [
+      "User-Friendly and Simple Setup",
+      "Client Engagement Features",
+      "Value for Money"
+    ],
+    "holes": [
+      "Fee complaints",
+      "Lack of Deposit Feature",
+      "Limited Customization for Services"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability and quality",
+        "t": "How confident are you that your clients consistently receive a high-quality experience through your current booking platform?"
+      },
+      {
+        "k": "Pricing and fees",
+        "t": "Have you noticed any unexpected or increasing costs associated with your current platform?"
+      },
+      {
+        "k": "Customer support quality",
+        "t": "When you or your clients have questions, how quickly and effectively does your provider respond?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "supersalon": {
+    "name": "Super Salon",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.supersalonadmin.com",
+    "links": [
+      "https://www.supersalonadmin.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "See Crayon for full details"
+    ],
+    "holes": [
+      "Limited information available"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [],
+    "voice": null,
+    "tier": "smb"
+  },
+  "timely": {
+    "name": "Timely",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.timelyapp.com",
+    "links": [
+      "https://www.timelyapp.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "See Crayon for full details"
+    ],
+    "defend": [
+      "Thought leadership in client journey starting at booking, not just in-chair service",
+      "Operational efficiency features reducing no-shows by up to 41%",
+      "Streamlined checkout with cards on file and automated payment processes",
+      "Ambassador program with influential salon professionals and co-created features"
+    ],
+    "holes": [
+      "No direct evidence of explicit weaknesses in provided Insights"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Booking and payment automation",
+        "t": "How well does Timely's automation reduce manual operational work, and are there still hidden steps?"
+      },
+      {
+        "k": "Scaling support",
+        "t": "Timely is actively hiring and expanding; how does this affect support quality during scaling?"
+      },
+      {
+        "k": "Feature personalization",
+        "t": "How easy is it to implement and manage personalization features like pronoun preferences?"
+      },
+      {
+        "k": "Hidden fees",
+        "t": "Are there unexpected costs when using Timely's payment or booking features as you expand?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "touchsuite": {
+    "name": "TouchSuite",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.touchsuite.com",
+    "links": [
+      "https://www.touchsuite.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Flexible customization"
+    ],
+    "defend": [
+      "Comprehensive suite of features for business management",
+      "User-friendly interface with intuitive navigation",
+      "Effective appointment scheduling and client management"
+    ],
+    "holes": [
+      "Occasional technical issues or software bugs",
+      "Limited customization options for specific business needs"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability and support",
+        "t": "How does TouchSuite ensure consistent uptime and rapid issue resolution during peak periods?"
+      },
+      {
+        "k": "Fees and pricing transparency",
+        "t": "Has TouchSuite provided you with a clear breakdown of all potential fees including hidden costs?"
+      },
+      {
+        "k": "Hardware support",
+        "t": "What has been your experience with TouchSuite's hardware compatibility and replacement process?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "vagaro": {
+    "name": "Vagaro",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://www.vagaro.com",
+    "links": [
+      "https://www.vagaro.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Superior customer support",
+      "Reliable and stable platform",
+      "Flexible customization",
+      "Transparent pricing"
+    ],
+    "defend": [
+      "Users have stated the software is easy to use",
+      "Popular choice for hair salons because of industry popularity",
+      "Cloud-based scheduling for booking, payments, marketing, and inventory"
+    ],
+    "holes": [
+      "Difficulties with multi-tasking, software glitches, and inconsistent release communication",
+      "Delays in sending marketing campaigns and inconsistent customer support",
+      "Unclear onboarding terms, pricing, and frequent system downtime",
+      "Disconnect between MarketPlace appointments and business appointment book",
+      "Chargebacks automatically withdrawn with difficulty in disputes for non-enterprise clients"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Service reliability",
+        "t": "How has Vagaro performed during your busiest booking periods, and have you experienced downtime or disruptions?"
+      },
+      {
+        "k": "Fees and total cost",
+        "t": "When you evaluate Vagaro's price, have you included payment-processing charges, add-ons, and hardware costs?"
+      },
+      {
+        "k": "Payment processing reliability",
+        "t": "Which payment workflows do you need, and have you confirmed fees and hardware requirements?"
+      },
+      {
+        "k": "Onboarding and migration",
+        "t": "What safeguards do you need to ensure customer data doesn't get lost during Vagaro migration?"
+      }
+    ],
+    "voice": {
+      "q": "Frequent system crashes and spotty servers disrupt business operations; unannounced updates occur during business hours with no compensation for downtime",
+      "attr": "Customer experience and system status reports"
+    },
+    "tier": "smb"
+  },
+  "zenoti": {
+    "name": "Zenoti",
+    "segment": "Salon & Spa",
+    "group": "crayon",
+    "site": "https://zenoti.com",
+    "links": [
+      "https://zenoti.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>depth, reliability & ease of use</b>",
+    "summary": "",
+    "lead": [
+      "Superior customer support",
+      "Flexible customization",
+      "Transparent pricing"
+    ],
+    "defend": [
+      "Powerful analytics and reporting tools",
+      "Comprehensive feature set for appointment scheduling",
+      "Client management capabilities",
+      "Robust inventory control",
+      "Business automation and optimization"
+    ],
+    "holes": [
+      "Steep learning curve due to complexity",
+      "Implementation challenges and onboarding complexity",
+      "Customization can be difficult",
+      "Customer support responsiveness varies",
+      "High cost for implementation and features"
+    ],
+    "counter": [
+      "Ease of use",
+      "Depth",
+      "Support"
+    ],
+    "landmines": [
+      {
+        "k": "Learning curve",
+        "t": "How important is ease of use for your team, and can they handle a complex platform?"
+      },
+      {
+        "k": "Implementation complexity",
+        "t": "What would a successful onboarding timeline look like for your team?"
+      },
+      {
+        "k": "Support quality during implementation",
+        "t": "What level of implementation support would you require during the transition?"
+      },
+      {
+        "k": "Total cost of ownership",
+        "t": "Beyond subscription, what implementation and customization costs should be budgeted?"
+      }
+    ],
+    "voice": null,
+    "tier": "enterprise"
+  },
+  "aestheticsrecord": {
+    "name": "Aesthetics Record",
+    "segment": "Med Spa",
+    "group": "manual",
+    "site": "https://www.aestheticsrecord.com",
+    "links": [
+      "https://www.aestheticsrecord.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Aesthetics Record's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Aesthetics Record typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "specialist"
+  },
+  "birdeye": {
+    "name": "Birdeye",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.birdeye.com",
+    "links": [
+      "https://www.birdeye.com"
+    ],
+    "tagline": "Review management and customer feedback platform",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "Review management and customer feedback platform",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Birdeye's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Birdeye typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "bookedby": {
+    "name": "BookedBy",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.bookedby.com",
+    "links": [
+      "https://www.bookedby.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is BookedBy's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is BookedBy typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "bookly": {
+    "name": "Bookly",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.bookly.com",
+    "links": [
+      "https://www.bookly.com"
+    ],
+    "tagline": "WordPress-based appointment booking plugin",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "WordPress-based appointment booking plugin",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Bookly's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Bookly typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "calendly": {
+    "name": "Calendly",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://calendly.com",
+    "links": [
+      "https://calendly.com"
+    ],
+    "tagline": "Simple appointment scheduling without back-and-forth",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "Simple appointment scheduling without back-and-forth",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Calendly's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Calendly typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "clinicsense": {
+    "name": "ClinicSense",
+    "segment": "Med Spa",
+    "group": "manual",
+    "site": "https://www.clinicsense.com",
+    "links": [
+      "https://www.clinicsense.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is ClinicSense's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is ClinicSense typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "specialist"
+  },
+  "combo": {
+    "name": "Combo",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://comboapp.com",
+    "links": [
+      "https://comboapp.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Combo's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Combo typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "dermengine": {
+    "name": "DermEngine",
+    "segment": "Med Spa",
+    "group": "manual",
+    "site": "https://dermengine.com",
+    "links": [
+      "https://dermengine.com"
+    ],
+    "tagline": "Dermatology and aesthetic practice management",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "Dermatology and aesthetic practice management",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is DermEngine's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is DermEngine typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "enterprise"
+  },
+  "elationhealth": {
+    "name": "Elation Health",
+    "segment": "Med Spa",
+    "group": "manual",
+    "site": "https://www.elationhealth.com",
+    "links": [
+      "https://www.elationhealth.com"
+    ],
+    "tagline": "EHR and practice management for health practices",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "EHR and practice management for health practices",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Elation Health's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Elation Health typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "enterprise"
+  },
+  "genbook": {
+    "name": "Genbook",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://genbook.com",
+    "links": [
+      "https://genbook.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Genbook's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Genbook typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "hairmax": {
+    "name": "HairMax",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://hairmax.com",
+    "links": [
+      "https://hairmax.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is HairMax's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is HairMax typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "leprechaun": {
+    "name": "Leprechaun",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://leprechaunsoftware.com",
+    "links": [
+      "https://leprechaunsoftware.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Leprechaun's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Leprechaun typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "managemyspa": {
+    "name": "Manage My Spa",
+    "segment": "Med Spa",
+    "group": "manual",
+    "site": "https://managemyspa.com",
+    "links": [
+      "https://managemyspa.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Manage My Spa's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Manage My Spa typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "specialist"
+  },
+  "meevo2": {
+    "name": "Meevo 2",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.meevo.com",
+    "links": [
+      "https://www.meevo.com"
+    ],
+    "tagline": "Next generation of Meevo platform",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "Next generation of Meevo platform",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Meevo 2's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Meevo 2 typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "milanocloud": {
+    "name": "Milano Cloud",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.milanosoftware.com",
+    "links": [
+      "https://www.milanosoftware.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Milano Cloud's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Milano Cloud typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "millennium": {
+    "name": "Millennium",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.millennium3.com",
+    "links": [
+      "https://www.millennium3.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Millennium's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Millennium typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "nosoftware": {
+    "name": "No Software",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://nosoftware.com",
+    "links": [
+      "https://nosoftware.com"
+    ],
+    "tagline": "Manual/paper-based operations",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "Manual/paper-based operations",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is No Software's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is No Software typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "octopi": {
+    "name": "Octopi",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.octopi.sh",
+    "links": [
+      "https://www.octopi.sh"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Octopi's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Octopi typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "pabau": {
+    "name": "Pabau",
+    "segment": "Med Spa",
+    "group": "manual",
+    "site": "https://www.pabau.com",
+    "links": [
+      "https://www.pabau.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Pabau's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Pabau typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "specialist"
+  },
+  "paperback": {
+    "name": "Paperback",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://paperbackapp.com",
+    "links": [
+      "https://paperbackapp.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Paperback's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Paperback typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "paperlessbilling": {
+    "name": "Paperless Billing",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://paperlessbilling.com",
+    "links": [
+      "https://paperlessbilling.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Paperless Billing's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Paperless Billing typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "prosalon": {
+    "name": "Prosalon",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.prosalon.net",
+    "links": [
+      "https://www.prosalon.net"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Prosalon's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Prosalon typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "saloniris": {
+    "name": "Salon Iris",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.salonirisoft.com",
+    "links": [
+      "https://www.salonirisoft.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Salon Iris's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Salon Iris typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "salonware": {
+    "name": "Salonware",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.salonware.net",
+    "links": [
+      "https://www.salonware.net"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Salonware's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Salonware typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "setmore": {
+    "name": "Setmore",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.setmore.com",
+    "links": [
+      "https://www.setmore.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Setmore's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Setmore typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "shedul": {
+    "name": "Shedul",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://www.shedul.com",
+    "links": [
+      "https://www.shedul.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Shedul's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Shedul typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "simplybook.me": {
+    "name": "Simplybook.me",
+    "segment": "Salon & Spa",
+    "group": "manual",
+    "site": "https://simplybook.me",
+    "links": [
+      "https://simplybook.me"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Simplybook.me's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Simplybook.me typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "smb"
+  },
+  "spabooker": {
+    "name": "SpaBooker",
+    "segment": "Med Spa",
+    "group": "manual",
+    "site": "https://spabookerapp.com",
+    "links": [
+      "https://spabookerapp.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is SpaBooker's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is SpaBooker typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "specialist"
+  },
+  "spasoft": {
+    "name": "SpaSoft",
+    "segment": "Med Spa",
+    "group": "manual",
+    "site": "https://www.spasoft.com",
+    "links": [
+      "https://www.spasoft.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is SpaSoft's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is SpaSoft typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "specialist"
+  },
+  "versum": {
+    "name": "Versum",
+    "segment": "Med Spa",
+    "group": "manual",
+    "site": "https://www.versum.com",
+    "links": [
+      "https://www.versum.com"
+    ],
+    "tagline": "",
+    "win": "We win on <b>integration, compliance & support</b>",
+    "summary": "",
+    "lead": [
+      "See manual research section for details"
+    ],
+    "defend": [
+      "Market position to be determined"
+    ],
+    "holes": [
+      "Research in progress"
+    ],
+    "counter": [
+      "Research needed"
+    ],
+    "landmines": [
+      {
+        "k": "Market Position",
+        "t": "What is Versum's primary positioning in the market?"
+      },
+      {
+        "k": "Use Cases",
+        "t": "Which types of salons or spas is Versum typically used by?"
+      }
+    ],
+    "voice": null,
+    "tier": "specialist"
+  }
+};
+
+var TIERS = {
+  enterprise: {label: "🏢 ENTERPRISE", desc: "Large-scale operations"},
+  'mid-market': {label: "📈 MID-MARKET", desc: "Growing, multi-location"},
+  smb: {label: "💼 SMB / AFFORDABLE", desc: "Solo to small businesses"},
+  specialist: {label: "🏥 MED SPA / SPECIALIST", desc: "Clinical & compliance focus"}
+};
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function cardHTML(key, c) {
+  var counterHtml = (c.counter || []).slice(0, 3).map(function(x) { return '<div class="cwin-i">' + esc(x) + '</div>'; }).join('');
+  return '<div class="card" onclick="openCard(\'' + key + '\')">' +
+    (c.priority ? '<span class="cbadge">PRIORITY #1</span>' : '') +
+    '<div class="cname">' + esc(c.name) + '</div>' +
+    '<span class="cseg">' + esc(c.segment) + '</span>' +
+    '<div class="cwin">' + c.win + '</div>' +
+    '<div class="cwins"><div class="cwins-h">Where we win</div>' + counterHtml + '</div>' +
+    '<div class="copen">Open battlecard →</div></div>';
+}
+
+function renderHomeByTier() {
+  var tierHtml = {};
+  
+  Object.keys(TIERS).forEach(function(tier) {
+    tierHtml[tier] = "";
+  });
+  
+  Object.keys(COMPS).forEach(function(k) {
+    var c = COMPS[k];
+    var tier = c.tier || 'smb';
+    if (tierHtml[tier] !== undefined) {
+      tierHtml[tier] += cardHTML(k, c);
+    }
+  });
+  
+  var panelsHtml = "";
+  Object.keys(TIERS).forEach(function(tier) {
+    if (tierHtml[tier]) {
+      panelsHtml += '<div style="margin-bottom:40px">' +
+        '<div class="tier-label">' + TIERS[tier].label + ' — ' + TIERS[tier].desc + '</div>' +
+        '<div class="grid">' + tierHtml[tier] + '</div></div>';
+    }
+  });
+  
+  var panelsDiv = document.getElementById("panels");
+  if (panelsDiv) {
+    panelsDiv.innerHTML = panelsHtml;
+  }
+}
+
+function populateSearch() {
+  var sel = document.getElementById("searchComp");
+  Object.keys(COMPS).forEach(function(k) {
+    var o = document.createElement("option");
+    o.value = k;
+    o.textContent = COMPS[k].name + " (" + COMPS[k].tier + ")";
+    sel.appendChild(o);
+  });
+}
+
+function listBlock(cls, title, items) {
+  if (!items || !items.length) return "";
+  return '<div class="block ' + cls + '"><h4>' + title + '</h4><ul>' +
+    items.map(function(x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div>';
+}
+
+function openCard(key) {
+  var c = COMPS[key];
+  if (!c) return;
+  
+  var lm = c.landmines && c.landmines.length ? ('<div class="block full holes" style="border-left:3px solid var(--terra)"><h4>Landmine questions to plant</h4><div class="lm">' +
+    c.landmines.map(function(q) { return '<div class="q"><div class="k">' + esc(q.k) + '</div><div class="t">' + esc(q.t) + '</div></div>'; }).join("") + '</div></div>') : "";
+  
+  var voice = c.voice ? ('<div class="voice"><div class="q">&ldquo;' + esc(c.voice.q) + '&rdquo;</div><div class="attr">' + esc(c.voice.attr) + '</div></div>') : "";
+  
+  var holes = c.holes && c.holes.length ? listBlock("holes", "Their holes — why buyers switch away", c.holes) : '<div class="block holes"><h4>Their holes — why buyers switch away</h4><p>Populating from live competitor intel.</p></div>';
+  
+  var html = '<button class="back" onclick="goHome()">← All competitors</button>' +
+    '<div class="dhead"><div><div class="dname">' + esc(c.name) + '</div>' +
+    '<div class="dmeta"><span class="tag seg">' + esc(c.segment) + '</span></div></div>' +
+    '<a class="site" href="' + esc(c.site) + '" target="_blank" rel="noopener">Visit site →</a></div>' +
+    '<div class="dsummary">' + esc(c.summary) + '</div>' +
+    '<div class="cols" style="margin-top:14px">' +
+    listBlock("win", "+ Lead with — how Meevo wins", c.lead) +
+    listBlock("def", "! Defend against — their strengths", c.defend) +
+    holes +
+    listBlock("counter", "→ Meevo counter (one-liners)", c.counter) +
+    lm +
+    '</div>' + voice;
+  
+  document.getElementById("detail").innerHTML = html;
+  document.getElementById("home").style.display = "none";
+  document.getElementById("detail").style.display = "block";
+  document.getElementById("searchComp").value = key;
+  window.scrollTo(0, 0);
+}
+
+function goHome() {
+  document.getElementById("detail").style.display = "none";
+  document.getElementById("home").style.display = "block";
+  window.scrollTo(0, 0);
+}
+
+function runSearch() {
+  var q = document.getElementById("searchQ").value.trim();
+  var comp = document.getElementById("searchComp").value;
+  var box = document.getElementById("searchAnswer");
+  var btn = document.getElementById("searchBtn");
+  if (!q) {
+    box.className = "answer show";
+    box.textContent = "Type a question first.";
+    return;
+  }
+  box.className = "answer";
+  btn.disabled = true;
+  btn.textContent = "Searching...";
+
+  var compData = COMPS[comp] || {};
+  var context = "You are a sales enablement expert helping reps win deals against competitors.\n\n";
+  if (comp && comp !== "All competitors") {
+    context += "Competitor: " + compData.name + "\n";
+    context += "Positioning: " + (compData.win || "") + "\n";
+    context += "Strengths: " + (compData.lead || []).join(", ") + "\n";
+    context += "Weaknesses: " + (compData.defend || []).join(", ") + "\n";
+  }
+  context += "All competitors in our database: " + Object.keys(COMPS).map(function(k){return COMPS[k].name;}).join(", ") + "\n\n";
+  context += "Question: " + q;
+
+  fetch(GROQ_API_URL, {
+    method: "POST",
+    headers: {
+      "Authorization": "Bearer " + GROQ_API_KEY,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      model: "openai/gpt-oss-20b",
+      messages: [{
+        role: "user",
+        content: context
+      }],
+      max_tokens: 500,
+      temperature: 0.7
+    })
+  })
+    .then(function(r){return r.json();})
+    .then(function(d){
+      box.className = "answer show";
+      if (d && d.choices && d.choices[0] && d.choices[0].message) {
+        box.textContent = d.choices[0].message.content;
+      } else if (d && d.error) {
+        box.textContent = "Error: " + d.error.message;
+      } else {
+        box.textContent = "No answer found. Try a different question.";
+      }
+    })
+    .catch(function(e){
+      box.className = "answer show";
+      box.textContent = "Error: " + e.message;
+    })
+    .finally(function(){
+      btn.disabled = false;
+      btn.textContent = "Ask";
+    });
+}
+
+function sendAlert() {
+  var name = document.getElementById("alertName").value.trim();
+  var msg = document.getElementById("alertMsg").value.trim();
+  var toast = document.getElementById("alertToast");
+  var btn = document.getElementById("alertBtn");
+  if (!name) {
+    toast.className = "toast err";
+    toast.textContent = "Enter your name first.";
+    return;
+  }
+  if (!msg) {
+    toast.className = "toast err";
+    toast.textContent = "Enter the alert first.";
+    return;
+  }
+  if (!WEBAPP_URL) {
+    toast.className = "toast ok";
+    toast.textContent = "Preview mode. Alert would be sent when backend is deployed.";
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+  toast.className = "toast";
+  fetch(WEBAPP_URL, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify({action:"sendAlert", name:name, message:msg})})
+    .then(function(r){return r.json();}).then(function(d){
+      toast.className = "toast ok";
+      toast.textContent = "Alert sent to " + (d.count || "the") + " reps!";
+      document.getElementById("alertName").value = "";
+      document.getElementById("alertMsg").value = "";
+    }).catch(function(e){
+      toast.className = "toast err";
+      toast.textContent = "Error: " + e.message;
+    }).finally(function(){
+      btn.disabled = false;
+      btn.textContent = "Send";
+    });
+}
+
+function fmtFeed(entries) {
+  var box = document.getElementById("intelFeed");
+  box.innerHTML = entries.map(function(e){
+    var id = String(e.id||"").replace(/\\/g,"\\\\").replace(/'/g,"\\'");
+    var del = e.id ? '<button class="fdel" title="Delete this entry" onclick="delIntel(\'' + id + '\')">&times;</button>' : '';
+    return '<div class="fitem">' + del + '<div class="fmeta"><b>' + esc(e.csm) + '</b> · ' + esc(e.time) + '</div><div class="fmsg">' + esc(e.message) + '</div></div>';
+  }).join("");
+}
+
+function delIntel(id) {
+  if (!WEBAPP_URL) return;
+  if (!confirm("Delete this intel entry? This removes it for everyone.")) return;
+  fetch(WEBAPP_URL, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify({action:"deleteIntel", id:id})})
+    .then(function(r){return r.json();}).then(function(d){
+      if (d && d.success) { loadIntel(); } else { alert("Delete failed: " + ((d && d.error) || "unknown")); }
+    }).catch(function(e){ alert("Error: " + e.message); });
+}
+
+function loadIntel() {
+  var box = document.getElementById("intelFeed");
+  if (!WEBAPP_URL) {
+    box.innerHTML = '<div class="fempty">Connect the backend to see and post client intel.</div>';
+    return;
+  }
+  fetch(WEBAPP_URL + "?action=intel").then(function(r){return r.json();}).then(function(d){
+    if (d && d.success) {
+      fmtFeed(d.entries || []);
+    } else {
+      box.innerHTML = '<div class="fempty">Could not load intel.</div>';
+    }
+  }).catch(function(){
+    box.innerHTML = '<div class="fempty">Could not reach the intel feed.</div>';
+  });
+}
+
+function postIntel() {
+  var csm = document.getElementById("intelCsm").value;
+  var msg = document.getElementById("intelMsg").value.trim();
+  var toast = document.getElementById("intelToast");
+  var btn = document.getElementById("intelBtn");
+  if (!csm) {
+    toast.className = "toast err";
+    toast.textContent = "Select your name first.";
+    return;
+  }
+  if (!msg) {
+    toast.className = "toast err";
+    toast.textContent = "Type the intel first.";
+    return;
+  }
+  if (!WEBAPP_URL) {
+    toast.className = "toast ok";
+    toast.textContent = "Preview mode — this would post to the feed and email the team, from " + csm + ".";
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = "Posting...";
+  toast.className = "toast";
+  toast.style.display = "none";
+  fetch(WEBAPP_URL, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify({action:"clientIntel", csm:csm, message:msg})})
+    .then(function(r){return r.json();}).then(function(d){
+      if (d && d.success) {
+        toast.className = "toast ok";
+        toast.textContent = "Posted and emailed to " + (d.count || "the") + " reps. Thanks, " + csm + ".";
+        document.getElementById("intelMsg").value = "";
+        loadIntel();
+      } else {
+        toast.className = "toast err";
+        toast.textContent = "Post failed: " + ((d && d.error) || "unknown");
+      }
+    }).catch(function(e){
+      toast.className = "toast err";
+      toast.textContent = "Error: " + e.message;
+    }).finally(function(){
+      btn.disabled = false;
+      btn.textContent = "Post & alert the team";
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderHomeByTier();
+  populateSearch();
+  loadIntel();
+});
+</script>
+</body>
+</html>
